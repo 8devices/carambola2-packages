@@ -68,7 +68,7 @@ define Package/imagemagick-tools
 endef
 
 define Package/imagemagick-png/description
-  imagemagick tools (mogrify,convert)
+  imagemagick tools (mogrify,convert,composite)
 endef
 
 define Package/imagemagick-tiff
@@ -134,6 +134,9 @@ define Package/imagemagick-tools/install
 		$(1)/usr/bin/
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/convert \
+		$(1)/usr/bin/
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/bin/composite \
 		$(1)/usr/bin/
 endef
 
