@@ -162,7 +162,7 @@ define KernelPackage/madwifi
   SUBMENU:=Wireless Drivers
   TITLE:=Driver for Atheros wireless chipsets
   URL:=http://madwifi-project.org/
-  DEPENDS:=+wireless-tools @PCI_SUPPORT @(!(TARGET_avr32||TARGET_brcm63xx||TARGET_cobalt||TARGET_ep93xx||TARGET_etrax||TARGET_octeon||TARGET_pxcab||TARGET_sibyte)||BROKEN) +@DRIVER_WEXT_SUPPORT
+  DEPENDS:=+wireless-tools @PCI_SUPPORT @(!(TARGET_avr32||TARGET_brcm63xx||TARGET_cobalt||TARGET_ep93xx||TARGET_etrax||TARGET_octeon||TARGET_pxcab||TARGET_sibyte)||BROKEN) +@DRIVER_WEXT_SUPPORT +hostapd-common-old
   FILES:=$(MADWIFI_FILES)
   AUTOLOAD:=$(call AutoLoad,50,$(MADWIFI_AUTOLOAD))
   MENU:=1
@@ -195,6 +195,7 @@ MAKE_ARGS:= \
 	TOOLPREFIX="$(KERNEL_CROSS)" \
 	TOOLPATH="$(KERNEL_CROSS)" \
 	KERNELPATH="$(LINUX_DIR)" \
+	KERNELRELEASE="$(LINUX_VERSION)" \
 	LDOPTS="--no-warn-mismatch " \
 	ATH_RATE="$(RATE_CONTROL)" \
 	ATH_CAP_SUPERG_COMP="$(COMPRESSION)" \
@@ -229,8 +230,6 @@ define Build/Prepare
 		$(PKG_BUILD_DIR)/hal/public/arm11*.inc
 	$(SED) 's,mtune=arm1136j-s,mtune=mpcore,' \
 		$(PKG_BUILD_DIR)/hal/public/arm11*.inc
-	# preset kernel version
-	echo 'char *uts_release = "$(LINUX_VERSION)";' > $(PKG_BUILD_DIR)/kernelversion.c
 endef
 
 ifeq ($(findstring AHB,$(BUS)),AHB)

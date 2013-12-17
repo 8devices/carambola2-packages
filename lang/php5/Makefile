@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=php
-PKG_VERSION:=5.4.11
-PKG_RELEASE:=1
+PKG_VERSION:=5.4.22
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://www.php.net/distributions/
-PKG_MD5SUM:=9975e68c22b86b013b934743ad2d2276
+PKG_MD5SUM:=0a7400d1d7f1f55b2b36285bf1a00762
 
 PKG_FIXUP:=libtool no-autoreconf
 PKG_BUILD_PARALLEL:=1
@@ -37,7 +37,6 @@ PHP5_MODULES = \
 	xml xmlreader xmlwriter zip \
 
 PKG_CONFIG_DEPENDS:= \
-	CONFIG_PACKAGE_php5-cgi CONFIG_PACKAGE_php5-cli \
 	$(patsubst %,CONFIG_PACKAGE_php5-mod-%,$(PHP5_MODULES)) \
 	CONFIG_PHP5_FILTER CONFIG_PHP5_LIBXML CONFIG_PHP5_SYSTEMTZDATA
 
@@ -124,6 +123,8 @@ define Package/php5-fastcgi/description
 endef
 
 CONFIGURE_ARGS+= \
+	--enable-cli \
+	--enable-cgi \
 	--enable-shared \
 	--disable-static \
 	--disable-rpath \
@@ -138,18 +139,6 @@ CONFIGURE_ARGS+= \
 	  --with-zlib-dir="$(STAGING_DIR)/usr" \
 	--with-pcre-regex="$(STAGING_DIR)/usr" \
 	--disable-phar
-
-ifneq ($(SDK)$(CONFIG_PACKAGE_php5-cli),)
-  CONFIGURE_ARGS+= --enable-cli
-else
-  CONFIGURE_ARGS+= --disable-cli
-endif
-
-ifneq ($(SDK)$(CONFIG_PACKAGE_php5-cgi),)
-  CONFIGURE_ARGS+= --enable-cgi
-else
-  CONFIGURE_ARGS+= --disable-cgi
-endif
 
 ifneq ($(SDK)$(CONFIG_PACKAGE_php5-mod-calendar),)
   CONFIGURE_ARGS+= --enable-calendar=shared
