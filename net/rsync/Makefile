@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2011 OpenWrt.org
+# Copyright (C) 2007-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rsync
-PKG_VERSION:=3.0.9
+PKG_VERSION:=3.1.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://rsync.samba.org/ftp/rsync/src
-PKG_MD5SUM:=5ee72266fe2c1822333c407e1761b92b
+PKG_MD5SUM:=3be148772a33224771a8d4d2a028b132
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
@@ -35,18 +35,17 @@ define Package/rsyncd
   SUBMENU:=File Transfer
   TITLE:=Rsync daemon
   DEPENDS:=+rsync
+  URL:=http://rsync.samba.org/
 endef
 
 define Package/rsync/description
-	rsync is a program that allows files to be copied to
-	and from remote machines in much the same way as rcp.
-	It has many more options than rcp, and uses the rsync
-	remote-update protocol to greatly speed up file
-	transfers when the destination file already exists.
+ rsync is a program that allows files to be copied to and from remote machines
+ in much the same way as rcp. It has many more options than rcp, and uses the
+ rsync remote-update protocol to greatly speed up file transfers when the
+ destination file already exists.
 
-	The rsync remote-update protocol allows rsync to
-	transfer just the differences between two sets of files
-	across the network link.
+ The rsync remote-update protocol allows rsync to transfer just the differences
+ between two sets of files across the network link.
 endef
 
 CONFIGURE_ARGS += \
@@ -62,9 +61,8 @@ define Package/rsync/install
 endef
 
 define Package/rsyncd/description
-	rsyncd is a configuration file and initscript to
-	utilize rsync as a daemon. It uses the same binary
-	as rsync.
+ rsyncd is a configuration file and initscript to utilize rsync as a daemon. It
+ uses the same binary as rsync.
 endef
 
 define Package/rsyncd/conffiles
