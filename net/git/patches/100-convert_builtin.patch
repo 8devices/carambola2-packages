@@ -1,5 +1,3 @@
-diff --git a/Makefile b/Makefile
-index dddaf4f..3db3aa9 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -533,16 +533,7 @@ EXTRA_PROGRAMS =
@@ -80,11 +78,9 @@ index dddaf4f..3db3aa9 100644
  		ln -s "git$X" "$$execdir/$$p" 2>/dev/null || \
  		cp "$$execdir/git$X" "$$execdir/$$p" || exit; \
  	done && \
-diff --git a/builtin.h b/builtin.h
-index c47c110..39b019a 100644
 --- a/builtin.h
 +++ b/builtin.h
-@@ -136,5 +136,11 @@ extern int cmd_verify_pack(int argc, const char **argv, const char *prefix);
+@@ -136,5 +136,11 @@ extern int cmd_verify_pack(int argc, con
  extern int cmd_show_ref(int argc, const char **argv, const char *prefix);
  extern int cmd_pack_refs(int argc, const char **argv, const char *prefix);
  extern int cmd_replace(int argc, const char **argv, const char *prefix);
@@ -96,53 +92,33 @@ index c47c110..39b019a 100644
 +extern int cmd_upload_pack(int argc, char **argv, const char *prefix);
  
  #endif
-diff --git a/builtin/daemon.c b/builtin/daemon.c
-new file mode 100644
-index 0000000..b1d8113
 --- /dev/null
 +++ b/builtin/daemon.c
 @@ -0,0 +1 @@
 +#include "../daemon.c"
-diff --git a/builtin/fast-import.c b/builtin/fast-import.c
-new file mode 100644
-index 0000000..12e1c10
 --- /dev/null
 +++ b/builtin/fast-import.c
 @@ -0,0 +1 @@
 +#include "../fast-import.c"
-diff --git a/builtin/http-backend.c b/builtin/http-backend.c
-new file mode 100644
-index 0000000..f8780e8
 --- /dev/null
 +++ b/builtin/http-backend.c
 @@ -0,0 +1 @@
 +#include "../http-backend.c"
-diff --git a/builtin/imap-send.c b/builtin/imap-send.c
-new file mode 100644
-index 0000000..246e2c7
 --- /dev/null
 +++ b/builtin/imap-send.c
 @@ -0,0 +1 @@
 +#include "../imap-send.c"
-diff --git a/builtin/shell.c b/builtin/shell.c
-new file mode 100644
-index 0000000..deed6bf
 --- /dev/null
 +++ b/builtin/shell.c
 @@ -0,0 +1 @@
 +#include "../shell.c"
-diff --git a/builtin/upload-pack.c b/builtin/upload-pack.c
-new file mode 100644
-index 0000000..14d020a
 --- /dev/null
 +++ b/builtin/upload-pack.c
 @@ -0,0 +1 @@
 +#include "../upload-pack.c"
-diff --git a/daemon.c b/daemon.c
-index 503e039..2fb4ce6 100644
 --- a/daemon.c
 +++ b/daemon.c
-@@ -1148,7 +1148,7 @@ static int serve(struct string_list *listen_addr, int listen_port,
+@@ -1148,7 +1148,7 @@ static int serve(struct string_list *lis
  	return service_loop(&socklist);
  }
  
@@ -151,8 +127,6 @@ index 503e039..2fb4ce6 100644
  {
  	int listen_port = 0;
  	struct string_list listen_addr = STRING_LIST_INIT_NODUP;
-diff --git a/fast-import.c b/fast-import.c
-index 4fd18a3..57b80c0 100644
 --- a/fast-import.c
 +++ b/fast-import.c
 @@ -3365,7 +3365,7 @@ static void parse_argv(void)
@@ -164,11 +138,9 @@ index 4fd18a3..57b80c0 100644
  {
  	unsigned int i;
  
-diff --git a/git.c b/git.c
-index 7cf2953..b44b014 100644
 --- a/git.c
 +++ b/git.c
-@@ -275,11 +275,11 @@ static int handle_alias(int *argcp, const char ***argv)
+@@ -275,11 +275,11 @@ static int handle_alias(int *argcp, cons
  
  struct cmd_struct {
  	const char *cmd;
@@ -215,8 +187,6 @@ index 7cf2953..b44b014 100644
  	{ "var", cmd_var, RUN_SETUP_GENTLY },
  	{ "verify-pack", cmd_verify_pack },
  	{ "verify-tag", cmd_verify_tag, RUN_SETUP },
-diff --git a/http-backend.c b/http-backend.c
-index d2c0a62..2e080da 100644
 --- a/http-backend.c
 +++ b/http-backend.c
 @@ -563,7 +563,7 @@ static struct service_cmd {
@@ -228,11 +198,9 @@ index d2c0a62..2e080da 100644
  {
  	char *method = getenv("REQUEST_METHOD");
  	char *dir;
-diff --git a/imap-send.c b/imap-send.c
-index 0bc6f7f..686cfe6 100644
 --- a/imap-send.c
 +++ b/imap-send.c
-@@ -1362,7 +1362,7 @@ static int git_imap_config(const char *key, const char *val, void *cb)
+@@ -1362,7 +1362,7 @@ static int git_imap_config(const char *k
  	return 0;
  }
  
@@ -241,8 +209,6 @@ index 0bc6f7f..686cfe6 100644
  {
  	struct strbuf all_msgs = STRBUF_INIT;
  	struct strbuf msg = STRBUF_INIT;
-diff --git a/shell.c b/shell.c
-index 5c0d47a..9a78b57 100644
 --- a/shell.c
 +++ b/shell.c
 @@ -142,7 +142,7 @@ static struct commands {
@@ -254,11 +220,9 @@ index 5c0d47a..9a78b57 100644
  {
  	char *prog;
  	const char **user_argv;
-diff --git a/upload-pack.c b/upload-pack.c
-index 0c44f6b..6c2e1fd 100644
 --- a/upload-pack.c
 +++ b/upload-pack.c
-@@ -786,7 +786,7 @@ static int upload_pack_config(const char *var, const char *value, void *unused)
+@@ -786,7 +786,7 @@ static int upload_pack_config(const char
  	return parse_hide_refs_config(var, value, "uploadpack");
  }
  
