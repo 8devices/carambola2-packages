@@ -68,7 +68,7 @@ CONFIGURE_ARGS += \
 	--without-bot \
 	--disable-proxy
 
-EXTRA_CFLAGS+=$(TARGET_CPPFLAGS) 
+EXTRA_CFLAGS+=$(TARGET_CPPFLAGS)
 EXTRA_LDFLAGS+=-lncurses
 
 ifeq ($(BUILD_VARIANT),ssl)
