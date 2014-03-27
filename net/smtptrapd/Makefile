@@ -26,8 +26,8 @@ define Package/smtptrapd
 endef
 
 define Package/smtptrapd/description
-	The smtptrapd program is a multi-threaded daemon that provides 
-	a RFC 2821 compliant SMTP service that always returns a 4xx soft 
+	The smtptrapd program is a multi-threaded daemon that provides
+	a RFC 2821 compliant SMTP service that always returns a 4xx soft
 	error to the RCPT TO verb.
 endef
 
@@ -41,7 +41,7 @@ define Build/Compile
 		$(TARGET_LDFLAGS) \
 		-lpthread
 endef
-	
+
 define Package/smtptrapd/install
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/smtptrapd.init $(1)/etc/init.d/smtptrapd
