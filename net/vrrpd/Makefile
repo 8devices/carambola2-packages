@@ -26,10 +26,10 @@ define Package/vrrpd
 endef
 
 define Package/vrrpd/description
-	VRRPd is an implementation of Virtual Router Redundancy 
-	Protocol as specified in rfc2338. VRRPd is interoperable with 
-	other RFC-based VRRP implementations, including Cisco and 
-	Juniper, and is included as a standard feature on ImageStream 
+	VRRPd is an implementation of Virtual Router Redundancy
+	Protocol as specified in rfc2338. VRRPd is interoperable with
+	other RFC-based VRRP implementations, including Cisco and
+	Juniper, and is included as a standard feature on ImageStream
 	routers.
 endef
 
