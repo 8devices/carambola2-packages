@@ -25,14 +25,14 @@ define Package/patch
 endef
 
 define Package/patch/description
-  The Patch package contains a program for modifying or creating files 
+  The Patch package contains a program for modifying or creating files
   by applying a "patch" file typically created by the diff program.
 endef
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		exec_prefix="$(PKG_INSTALL_DIR)" \
-		all install 
+		all install
 endef
 
 define Package/patch/install
