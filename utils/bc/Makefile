@@ -30,7 +30,7 @@ define Package/bc
 endef
 
 define Package/bc/description
- bc is a language that supports arbitrary precision numbers with 
+ bc is a language that supports arbitrary precision numbers with
  interactive execution of statements.
 endef
 
@@ -41,7 +41,7 @@ define Package/dc
 endef
 
 define Package/dc/description
- dc is a reverse-polish desk calculator which supports unlimited 
+ dc is a reverse-polish desk calculator which supports unlimited
  precision arithmetic.
 endef
 
