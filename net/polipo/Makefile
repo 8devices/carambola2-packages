@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -27,9 +27,9 @@ define Package/polipo
 endef
 
 define Package/polipo/description
- Polipo is a small and fast caching web proxy (a web cache, an HTTP proxy, 
- a proxy server). While Polipo was designed to be used by one person or a 
- small group of people, there is nothing that prevents it from being used 
+ Polipo is a small and fast caching web proxy (a web cache, an HTTP proxy,
+ a proxy server). While Polipo was designed to be used by one person or a
+ small group of people, there is nothing that prevents it from being used
  by a larger group.
 endef
 
