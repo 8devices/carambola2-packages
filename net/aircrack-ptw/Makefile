@@ -34,7 +34,7 @@ define Build/Compile
 		$(TARGET_LDFLAGS) \
 		-lpcap -o $(PKG_BUILD_DIR)/aircrack-ptw \
 		$(PKG_BUILD_DIR)/aircrack-ptw.c \
-		$(PKG_BUILD_DIR)/aircrack-ptw-lib.c 
+		$(PKG_BUILD_DIR)/aircrack-ptw-lib.c
 endef
 
 define Package/aircrack-ptw/install
