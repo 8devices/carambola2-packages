@@ -25,8 +25,8 @@ define Package/cutter
 endef
 
 define Package/cutter/description
-	Cutter is an open source program that allows Linux firewall 
-	administrators to abort TCP/IP connections routed over the 
+	Cutter is an open source program that allows Linux firewall
+	administrators to abort TCP/IP connections routed over the
 	firewall or router on which it is run.
 endef
 
