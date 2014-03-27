@@ -40,7 +40,7 @@ define Package/slsh
   CATEGORY:=Languages
   TITLE:=S-Lang Shell
   URL:=http://www.jedsoft.org/slang/slsh.html
-  DEPENDS:= +libslang2 
+  DEPENDS:= +libslang2
 endef
 
 define Package/libslang2/description
@@ -87,7 +87,7 @@ define Build/InstallDev
 endef
 
 define Package/slsh/install
- 	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/slsh $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/usr/share
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/slsh/ $(1)/usr/share/
