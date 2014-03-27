@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2008 Christian Pointner,
 #                    <equinox@anytun.org>
 #
@@ -34,15 +34,15 @@ endef
 
 define Package/uanytun/desc-template
 uAnytun is a tiny implementation of SATP the secure anycast tunneling protocol.
-  SATP defines a protocol used for communication between any combination of 
-  unicast and anycast tunnel endpoints.  It has less protocol overhead than 
+  SATP defines a protocol used for communication between any combination of
+  unicast and anycast tunnel endpoints.  It has less protocol overhead than
   IPSec in Tunnel mode and allows tunneling of every ETHER TYPE protocol (e.g.
-  ethernet, ip, arp ...). SATP directly includes cryptography and message 
-  authentication based on the methodes used by SRTP.  It is intended to deliver 
-  a generic, scaleable and secure solution for tunneling and relaying of packets 
+  ethernet, ip, arp ...). SATP directly includes cryptography and message
+  authentication based on the methodes used by SRTP.  It is intended to deliver
+  a generic, scaleable and secure solution for tunneling and relaying of packets
   of any protocol.
-  Unlike Anytun which is a full featured implementation uAnytun has no support 
-  for multiple connections or synchronisation. It is a small single threaded 
+  Unlike Anytun which is a full featured implementation uAnytun has no support
+  for multiple connections or synchronisation. It is a small single threaded
   implementation intended to act as a client on small platforms.
 endef
 
@@ -116,7 +116,7 @@ ifneq ($(CONFIG_PACKAGE_uanytun-nocrypt),)
     NO_CRYPT_OBJ=1 \
     TARGET=Linux \
     CFLAGS="$(TARGET_CFLAGS) -DNO_CRYPT" \
-    LDFLAGS="$(TARGET_LDFLAGS) -ldl" 
+    LDFLAGS="$(TARGET_LDFLAGS) -ldl"
 	$(STRIP) $(PKG_BUILD_DIR)/uanytun-nocrypt/src/uanytun
  endef
 endif
@@ -134,7 +134,7 @@ ifneq ($(CONFIG_PACKAGE_uanytun-sslcrypt),)
     $(TARGET_CONFIGURE_OPTS) \
     TARGET=Linux \
     CFLAGS="$(TARGET_CFLAGS) -DUSE_SSL_CRYPTO -I$(STAGING_DIR)/usr/include" \
-    LDFLAGS="$(TARGET_LDFLAGS) -ldl -lcrypto" 
+    LDFLAGS="$(TARGET_LDFLAGS) -ldl -lcrypto"
 	$(STRIP) $(PKG_BUILD_DIR)/uanytun-sslcrypt/src/uanytun
  endef
 endif
@@ -152,7 +152,7 @@ ifneq ($(CONFIG_PACKAGE_uanytun),)
     $(TARGET_CONFIGURE_OPTS) \
     TARGET=Linux \
     CFLAGS="$(TARGET_CFLAGS) -I$(STAGING_DIR)/usr/include" \
-    LDFLAGS="$(TARGET_LDFLAGS) -ldl -lgcrypt -lgpg-error" 
+    LDFLAGS="$(TARGET_LDFLAGS) -ldl -lgcrypt -lgpg-error"
 	$(STRIP) $(PKG_BUILD_DIR)/uanytun/src/uanytun
  endef
 endif
