@@ -28,9 +28,9 @@ define Package/wccpd
 endef
 
 define Package/wccpd/description
-	wccpd is a WCCP (Web Cache Coordination Protocol) server daemon 
-	It allows a router (running Linux) to redirect web traffic to a 
-	group of Squid servers using WCCP as the monitoring/controling 
+	wccpd is a WCCP (Web Cache Coordination Protocol) server daemon
+	It allows a router (running Linux) to redirect web traffic to a
+	group of Squid servers using WCCP as the monitoring/controling
 	protocol.
 endef
 
