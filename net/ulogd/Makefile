@@ -26,7 +26,7 @@ endef
 
 define Package/ulogd
   $(call Package/ulogd/Default)
-  DEPENDS:=+iptables-mod-ulog 
+  DEPENDS:=+iptables-mod-ulog
   TITLE:=Netfilter userspace logging daemon
   MENU:=1
 endef
