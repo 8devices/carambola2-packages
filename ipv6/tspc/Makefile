@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -27,7 +27,7 @@ define Package/tspc
 endef
 
 define Package/tspc/description
-	Client to configure an IPv6 tunnel to 
+	Client to configure an IPv6 tunnel to
 	Hexago's (Freenet6's) migration broker.
 endef
 
