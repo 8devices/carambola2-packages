@@ -32,7 +32,7 @@ define Package/libtasn1
 endef
 
 define Package/libtasn1/description
- This is a library for Abstract Syntax Notation One (ASN.1) and 
+ This is a library for Abstract Syntax Notation One (ASN.1) and
  Distinguish Encoding Rules (DER) manipulation.
 endef
 
