@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2010 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -29,10 +29,10 @@ define Package/pepsal
 endef
 
 define Package/pepsal/description
- PEPsal is an integrated, multi-layer, transparent TCP Performance Enhancing 
- Proxy which splits the connection into two parts, making use of Linux TCP 
- enhancements when sending data, and largely improving performance in 
- links with different characteristics 
+ PEPsal is an integrated, multi-layer, transparent TCP Performance Enhancing
+ Proxy which splits the connection into two parts, making use of Linux TCP
+ enhancements when sending data, and largely improving performance in
+ links with different characteristics
 endef
 
 
