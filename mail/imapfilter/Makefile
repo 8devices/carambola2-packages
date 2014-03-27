@@ -50,7 +50,7 @@ define Build/Compile
 		INCDIRS="$(TARGET_CPPFLAGS)" \
 		LIBDIRS="$(TARGET_LDFLAGS)" \
 		MYCFLAGS="$(TARGET_CFLAGS) -std=gnu99" \
-		MYLDFLAGS="-lcrypt" 
+		MYLDFLAGS="-lcrypt"
 endef
 
 define Package/imapfilter/conffiles
