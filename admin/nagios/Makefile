@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2008-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -44,7 +44,7 @@ CONFIGURE_ARGS += \
 	--without-gd-lib \
 	--without-gd-inc \
 	CFLAGS="$(TARGET_CFLAGS) $(EXTRA_CFLAGS)"
-	
+
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
