@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2008 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -17,7 +17,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/build-essential
   SECTION:=devel
   CATEGORY:=Development
-  TITLE:=Build essentials 
+  TITLE:=Build essentials
   DEPENDS=+gcc +make +binutils +patch +diffutils @NO_STRIP
   PKGARCH:=all
 endef
