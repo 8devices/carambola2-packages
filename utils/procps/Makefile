@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2010 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -37,8 +37,8 @@ define Package/procps
 endef
 
 define Package/procps/description
- procps is the package that has a bunch of small useful utilities that give 
- information about processes using the /proc filesystem. The package 
+ procps is the package that has a bunch of small useful utilities that give
+ information about processes using the /proc filesystem. The package
  includes the programs ps, top, vmstat, w, kill, free, slabtop, and skill.
 endef
 
@@ -72,7 +72,7 @@ AUXDIR_ps := "ps/"
 
 define BuildPlugin
   define Package/$(1)/install
-  	$(INSTALL_DIR) $$(1)/usr/bin
+	$(INSTALL_DIR) $$(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(AUXDIR_$(2))$(2) $$(1)/usr/bin/
   endef
 
