@@ -28,7 +28,7 @@ define Package/slurm
 endef
 
 define Package/slurm/description
-	A realtime network interface monitor with the following features: 
+	A realtime network interface monitor with the following features:
 	- realtime traffic statistics divided into incoming and outgoing ;
 	- optional combined view ;
 	- can monitor any kind of network interface ;
