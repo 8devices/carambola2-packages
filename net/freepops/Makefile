@@ -54,7 +54,7 @@ define Package/freepops/install
 	$(MAKE) -C $(PKG_BUILD_DIR) DESTDIR=$(PKG_INSTALL_DIR)/ WHERE=/usr/ install
 	mkdir -p $(PKG_INSTALL_DIR)/etc/init.d
 	$(CP) $(PKG_BUILD_DIR)/buildfactory/openwrt/S50freepopsd \
-		$(PKG_INSTALL_DIR)/etc/init.d 
+		$(PKG_INSTALL_DIR)/etc/init.d
 	chmod a+x $(PKG_INSTALL_DIR)/etc/init.d/*
 	rm -rf $(PKG_INSTALL_DIR)/usr/share/doc
 	rm -rf $(PKG_INSTALL_DIR)/usr/share/man
