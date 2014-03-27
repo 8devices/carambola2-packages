@@ -29,7 +29,7 @@ define Package/openslp
 endef
 
 #CONFIGURE_ARGS += \
-#	--disable-libwrap 
+#	--disable-libwrap
 
 #MAKE_FLAGS += \
 #	CFLAGS="$(TARGET_CFLAGS) -Wall -D_REENTRANT" \
