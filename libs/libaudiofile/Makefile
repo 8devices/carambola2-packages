@@ -30,8 +30,8 @@ define Package/libaudiofile
 endef
 
 define Package/libaudiofile/description
- The audiofile library allows the processing of audio data to and from audio 
- files of many common formats (currently AIFF, AIFF-C, WAVE, NeXT/Sun, BICS, 
+ The audiofile library allows the processing of audio data to and from audio
+ files of many common formats (currently AIFF, AIFF-C, WAVE, NeXT/Sun, BICS,
  and raw data).
 endef
 
