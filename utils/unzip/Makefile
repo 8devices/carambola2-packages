@@ -29,9 +29,9 @@ define Package/unzip
 endef
 
 define Package/unzip/description
-	InfoZIP's unzip program. With the exception of multi-volume archives 
-	(ie, .ZIP files that are split across several disks using PKZIP's /& option), 
-	this can handle any file produced either by PKZIP, or the corresponding 
+	InfoZIP's unzip program. With the exception of multi-volume archives
+	(ie, .ZIP files that are split across several disks using PKZIP's /& option),
+	this can handle any file produced either by PKZIP, or the corresponding
 	InfoZIP zip program.
 endef
 
@@ -48,7 +48,7 @@ define Build/Compile
 		install
 endef
 
-define Package/unzip/install	
+define Package/unzip/install
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
 endef
