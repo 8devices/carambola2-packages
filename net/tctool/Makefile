@@ -28,7 +28,7 @@ define Package/tctool
 endef
 
 define Package/tctool/description
- tcTool provides access to the console-service of TrendChip-based 
+ tcTool provides access to the console-service of TrendChip-based
  ADSL-Modems.
 endef
 
