@@ -32,10 +32,10 @@ define Package/libdlna
 endef
 
 define Package/libdlna/description
- libdlna aims at being the reference open-source implementation of DLNA 
- (Digital Living Network Alliance) standards. Its primary goal is to 
- provide DLNA support to uShare, an embedded DLNA & UPnP A/V Media Server, 
- but it will be used to build both DLNA servers and players in the long 
+ libdlna aims at being the reference open-source implementation of DLNA
+ (Digital Living Network Alliance) standards. Its primary goal is to
+ provide DLNA support to uShare, an embedded DLNA & UPnP A/V Media Server,
+ but it will be used to build both DLNA servers and players in the long
  term.
 endef
 
