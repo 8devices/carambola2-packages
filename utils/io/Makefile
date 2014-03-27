@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -22,7 +22,7 @@ define Package/io
 endef
 
 define Package/io/description
-	This tool can be used to access physical memory addresses from userspace. 
+	This tool can be used to access physical memory addresses from userspace.
 	It can be useful to access hardware for which no device driver exists!
 endef
 
