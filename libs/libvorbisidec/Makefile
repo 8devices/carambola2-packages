@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -33,7 +33,7 @@ endef
 
 define Package/libvorbisidec/description
 	libvorbisidec is "tremor", a fixed-point implementation of libvorbis.
-	It also has libogg built-in. It is suitable as a replacement for 
+	It also has libogg built-in. It is suitable as a replacement for
 	libvorbis and libogg in tremor-aware applications.
 	Tremor is a decoder only.
 endef
