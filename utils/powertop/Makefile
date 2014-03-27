@@ -29,7 +29,7 @@ define Package/powertop
 endef
 
 define Package/powertop/description
- PowerTOP is a Linux tool that helps you find those programs that are 
+ PowerTOP is a Linux tool that helps you find those programs that are
  misbehaving while your computer is idle.
 endef
 
