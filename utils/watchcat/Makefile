@@ -1,5 +1,5 @@
-# 
-# Copyright (C) 2010 segal.di.ubi.pt 
+#
+# Copyright (C) 2010 segal.di.ubi.pt
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -37,7 +37,7 @@ define Package/watchcat/install
 	$(INSTALL_BIN) ./files/initd_watchcat $(1)/etc/init.d/watchcat
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) ./files/watchcat.sh $(1)/usr/bin/watchcat.sh
-	$(INSTALL_DIR) $(1)/etc/uci-defaults	
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/uci_defaults_watchcat $(1)/etc/uci-defaults/50-watchcat
 endef
 
