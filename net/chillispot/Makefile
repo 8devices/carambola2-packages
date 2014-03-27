@@ -30,12 +30,12 @@ define Package/chillispot
 endef
 
 define Package/chillispot/description
-	ChilliSpot is an open source captive portal or wireless LAN 
-	access point controller. It is used for authenticating users 
-	of a wireless LAN. It supports web based login which is today's 
-	standard for public HotSpots and it supports Wireless Protected 
-	Access (WPA) which is the standard of the future. Authentication, 
-	authorization and accounting (AAA) is handled by your favorite 
+	ChilliSpot is an open source captive portal or wireless LAN
+	access point controller. It is used for authenticating users
+	of a wireless LAN. It supports web based login which is today's
+	standard for public HotSpots and it supports Wireless Protected
+	Access (WPA) which is the standard of the future. Authentication,
+	authorization and accounting (AAA) is handled by your favorite
 	radius server.
 endef
 
