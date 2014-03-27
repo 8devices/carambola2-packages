@@ -77,7 +77,7 @@ $(call Package/gstreamer/description/Default)
  .
  This package contains the GStreamer core library.
 endef
-  
+
 
 GST_VERSION:=0.10
 
