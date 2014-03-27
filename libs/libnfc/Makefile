@@ -42,7 +42,7 @@ define Package/libnfc/description
   And depending on hardware, it supports:
    * Read (RFID @13.56Mhz),
    * Emulation and
-   * Peer2Peer mode.  
+   * Peer2Peer mode.
 endef
 
 define Package/libnfc-bin
