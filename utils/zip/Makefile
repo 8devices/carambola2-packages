@@ -29,9 +29,9 @@ define Package/zip
 endef
 
 define Package/zip/description
-	This is InfoZIP's zip program. It produces files that are fully 
-	compatible with the popular PKZIP program; however, the command line 
-	options are not identical. In other words, the end result is the same, 
+	This is InfoZIP's zip program. It produces files that are fully
+	compatible with the popular PKZIP program; however, the command line
+	options are not identical. In other words, the end result is the same,
 	but the methods differ.
 endef
 
@@ -47,7 +47,7 @@ define Build/Compile
 		install
 endef
 
-define Package/zip/install	
+define Package/zip/install
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
 endef
