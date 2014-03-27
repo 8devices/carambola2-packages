@@ -27,7 +27,7 @@ define Package/libdbi-drivers/default
 endef
 
 define Package/libdbi-drivers/default/description
-       libdbi-drivers project provides the database-specific drivers 
+       libdbi-drivers project provides the database-specific drivers
 for the libdbi framework
 endef
 
