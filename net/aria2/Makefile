@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012 OpenWrt.org
+# Copyright (C) 2012-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -7,15 +7,30 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=aria2
-PKG_VERSION:=1.17.1
+PKG_VERSION:=1.18.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/aria2
-PKG_MD5SUM:=86229ef8d289893934cb3af25c8fddf6
+PKG_MD5SUM:=d10fc5ee6e708760134e4cb963ecc98e
 PKG_INSTALL:=1
 
+PKG_MAINTAINER:=Imre Kaloz <kaloz@openwrt.org>
+PKG_LICENSE:=GPLv2
+PKG_LICENSE_FILES:=COPYING
+
+PKG_CONFIG_DEPENDS := \
+  ARIA2_NOSSL \
+  ARIA2_OPENSSL \
+  ARIA2_GNUTLS \
+  ARIA2_BITTORRENT \
+  ARIA2_METALINK
+
 include $(INCLUDE_DIR)/package.mk
+
+define Package/aria2/config
+  source "$(SOURCE)/Config.in"
+endef
 
 define Package/aria2
   SECTION:=net
@@ -23,8 +38,7 @@ define Package/aria2
   SUBMENU:=File Transfer
   TITLE:=lightweight download utility
   URL:=http://aria2.sourceforge.net/
-  DEPENDS:=+libopenssl +zlib +libxml2 +libstdcpp \
-	$(INTL_DEPENDS) $(ICONV_DEPENDS)
+  DEPENDS:=+zlib +ARIA2_METALINK:libxml2 +libstdcpp +ARIA2_OPENSSL:libopenssl +ARIA2_GNUTLS:libgnutls
 endef
 
 define Package/aria2/description
@@ -34,20 +48,19 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-nls \
-	--without-gnutls \
+	$(if $(CONFIG_ARIA2_NOSSL),--disable,--enable)-ssl \
+	$(if $(CONFIG_ARIA2_OPENSSL),--with,--without)-openssl \
+	$(if $(CONFIG_ARIA2_GNUTLS),--with,--without)-gnutls \
+	$(if $(CONFIG_ARIA2_BITTORRENT),--enable,--disable)-bittorrent \
+	$(if $(CONFIG_ARIA2_METALINK),--enable,--disable)-metalink \
+	$(if $(CONFIG_ARIA2_METALINK),--with,--without)-libxml2 \
 	--without-libnettle \
 	--without-libgmp \
 	--without-libgcrypt \
 	--without-libexpat \
 	--without-libcares \
 	--without-sqlite3 \
-	--with-openssl \
-	--with-libxml2 \
 	--with-libz
-
-CONFIGURE_VARS += \
-	ZLIB_CFLAGS="-I$(STAGING_DIR)/usr/include" \
-	ZLIB_LIBS="-L$(STAGING_DIR)/usr/lib"
 
 define Package/aria2/install
 	$(INSTALL_DIR) $(1)/usr/bin
