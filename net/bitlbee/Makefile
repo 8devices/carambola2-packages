@@ -78,9 +78,9 @@ endef
 
 define Package/bitlbee/install
 	$(MAKE) -C $(PKG_BUILD_DIR) \
-		DESTDIR="$(1)" install-etc install-bin 
+		DESTDIR="$(1)" install-etc install-bin
 	$(MAKE) -C $(PKG_BUILD_DIR)/doc/user-guide \
-		DESTDIR="$(1)" install 
+		DESTDIR="$(1)" install
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/bitlbee.init $(1)/etc/init.d/bitlbee
 endef
