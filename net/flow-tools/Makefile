@@ -28,7 +28,7 @@ define Package/flow-tools
 endef
 
 define Package/flow-tools/description
-	Flow-tools is a software package for collecting and processing 
+	Flow-tools is a software package for collecting and processing
 	NetFlow data from Cisco and Juniper routers.
 endef
 
@@ -36,7 +36,7 @@ define Build/Compile
 	$(call Build/Compile/Default,all)
 endef
 
-define Package/flow-tools/install	
+define Package/flow-tools/install
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(CP) $(PKG_BUILD_DIR)/src/flow-* $(1)/usr/bin/
 endef
