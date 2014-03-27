@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -29,11 +29,11 @@ CONFIGURE_ARGS += \
 	--enable-shared
 
 define Package/cmdpad/description
-	cmdpad - execute commands when a key is pressed, released or hold down. 
-	Should be started from /etc/rc or /etc/rc.local. To run it as deamon you 
-	need to start it with '&'. All logs are printed to standard out and standard 
-	error (to write the log to disk use cmdpad > /var/log/cmdpad). Cmdpad 
-	searches for /etc/cmdpad.conf and load the key bindings. Then wait for 
+	cmdpad - execute commands when a key is pressed, released or hold down.
+	Should be started from /etc/rc or /etc/rc.local. To run it as deamon you
+	need to start it with '&'. All logs are printed to standard out and standard
+	error (to write the log to disk use cmdpad > /var/log/cmdpad). Cmdpad
+	searches for /etc/cmdpad.conf and load the key bindings. Then wait for
 	key event and check each command to see if it should be run.
 endef
 
@@ -44,7 +44,7 @@ MAKE_FLAGS += \
 define Package/cmdpad/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_DIR) $(1)/etc/init.d 
+	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/cmdpad $(1)/usr/sbin/
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/src/cmdpad.conf $(1)/etc/
 	$(INSTALL_BIN) ./files/cmdpad.init $(1)/etc/init.d/cmdpad
