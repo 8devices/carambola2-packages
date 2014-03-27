@@ -56,4 +56,4 @@ define Build/Compile
 	  LDFLAGS="$(TARGET_LDFLAGS) -lz -lm"
 endef
 
-$(eval $(call BuildPackage,ices)) 
+$(eval $(call BuildPackage,ices))
