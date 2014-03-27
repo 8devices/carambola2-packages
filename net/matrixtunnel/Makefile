@@ -33,7 +33,7 @@ define Package/matrixtunnel
 endef
 
 define Package/matrixtunnel/description
-	matrixtunnel is a stripped down version of stunnel 
+	matrixtunnel is a stripped down version of stunnel
 	based on matrixssl library.
 endef
 
