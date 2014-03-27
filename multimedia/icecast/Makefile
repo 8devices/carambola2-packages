@@ -31,11 +31,11 @@ define Package/icecast
 endef
 
 define Package/icecast/description
-	Icecast is a streaming media server which currently supports Ogg 
-	Vorbis and MP3 audio streams. It can be used to create an Internet 
-	radio station or a privately running jukebox and many things in 
-	between. It is very versatile in that new formats can be added 
-	relatively easily and supports open standards for commuincation and 
+	Icecast is a streaming media server which currently supports Ogg
+	Vorbis and MP3 audio streams. It can be used to create an Internet
+	radio station or a privately running jukebox and many things in
+	between. It is very versatile in that new formats can be added
+	relatively easily and supports open standards for commuincation and
 	interaction.
 endef
 
