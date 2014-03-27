@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -85,9 +85,9 @@ define Build/Compile
 	$(CP) $(PKG_BUILD_DIR)/fax/faxheader $(PKG_INSTALL_DIR)/etc/mgetty+sendfax
 	$(CP) $(PKG_BUILD_DIR)/faxrunq.config $(PKG_INSTALL_DIR)/etc/mgetty+sendfax
 	$(CP) $(PKG_BUILD_DIR)/fax/faxspool.rules $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/faxspool.rules.sample
-	$(PKG_BUILD_DIR)/sedscript < $(PKG_BUILD_DIR)/login.cfg.in > $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/login.config   
-	$(PKG_BUILD_DIR)/sedscript < $(PKG_BUILD_DIR)/mgetty.cfg.in > $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/mgetty.config   
-	$(PKG_BUILD_DIR)/sedscript < $(PKG_BUILD_DIR)/sendfax.cfg.in > $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/sendfax.config   
+	$(PKG_BUILD_DIR)/sedscript < $(PKG_BUILD_DIR)/login.cfg.in > $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/login.config
+	$(PKG_BUILD_DIR)/sedscript < $(PKG_BUILD_DIR)/mgetty.cfg.in > $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/mgetty.config
+	$(PKG_BUILD_DIR)/sedscript < $(PKG_BUILD_DIR)/sendfax.cfg.in > $(PKG_INSTALL_DIR)/etc/mgetty+sendfax/sendfax.config
 endef
 
 define Package/mgetty/install
