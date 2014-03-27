@@ -25,14 +25,14 @@ define Package/procmail
 endef
 
 define Package/procmail/description
- Procmail is able to process and classify incoming mail into 
+ Procmail is able to process and classify incoming mail into
  different mail boxes.
  Very useful in conjunction with mutt.
 endef
 
 TARGET_CFLAGS += -DPROCMAIL
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/src -f ../Makefile.openwrt  \
 		$(TARGET_CONFIGURE_OPTS) \
 		CFLAGS="$(TARGET_CFLAGS)"
@@ -40,7 +40,7 @@ endef
 
 define Package/procmail/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_BUILD_DIR)/src/procmail $(1)/usr/bin/ 
+	$(CP) $(PKG_BUILD_DIR)/src/procmail $(1)/usr/bin/
 	$(CP) $(PKG_BUILD_DIR)/src/formail $(1)/usr/bin/
 endef
 
