@@ -47,7 +47,7 @@ define Build/Configure
 endef
 
 
-define Package/kmemtrace-user/install    
+define Package/kmemtrace-user/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/kmemtrace-check $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/kmemtrace-report $(1)/usr/sbin/
