@@ -28,11 +28,11 @@ define Package/wrt-radauth
 endef
 
 define Package/wrt-radauth/description
-	This software watches the stations associating to a broadcom based 
-	AccessPoint (e.g. Linksys WRT54G) and sends an authentication request 
+	This software watches the stations associating to a broadcom based
+	AccessPoint (e.g. Linksys WRT54G) and sends an authentication request
 	to the radius-server specified in nvram.
 endef
-  
+
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) clean
 	$(call Build/Compile/Default, \
@@ -41,7 +41,7 @@ define Build/Compile
 	)
 endef
 
-define Package/wrt-radauth/install	
+define Package/wrt-radauth/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/radius-client $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wrt-radauth $(1)/usr/sbin/
