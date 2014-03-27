@@ -30,8 +30,8 @@ define Package/classpath
 endef
 
 define Package/classpath/Description
-	GNU Classpath, Essential Libraries for Java, is a GNU project 
-	to create free core class libraries for use with virtual 
+	GNU Classpath, Essential Libraries for Java, is a GNU project
+	to create free core class libraries for use with virtual
 	machines and compilers for the java programming language.
 endef
 
