@@ -30,7 +30,7 @@ define Package/python-psycopg
 endef
 
 define Package/python-psycopg/description
- This package contains is a PostgreSQL database adapter for the Python 
+ This package contains is a PostgreSQL database adapter for the Python
  programming language.
 endef
 
