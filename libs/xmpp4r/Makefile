@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v3.
@@ -22,8 +22,8 @@ define Package/xmpp4r
 	SECTION:=libs
 	CATEGORY:=Libraries
 	DEPENDS:=+ruby
-  	MAINTAINER:=Giovanni Di Stasi <giovanni.distasi@unina.it>
-  	URL:=http://home.gna.org/xmpp4r/
+	MAINTAINER:=Giovanni Di Stasi <giovanni.distasi@unina.it>
+	URL:=http://home.gna.org/xmpp4r/
 endef
 
 define Package/xmpp4r/description
