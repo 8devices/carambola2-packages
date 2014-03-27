@@ -34,7 +34,7 @@ endef
 define Package/dump1090/description
  Dump1090 is a Mode S decoder specifically designed for RTLSDR devices.
  Embedded HTTP server that displays the currently detected aircrafts on
- Google Maps. Network output in Basestation and AVR formats. 
+ Google Maps. Network output in Basestation and AVR formats.
 endef
 
 MAKE_FLAGS += \
