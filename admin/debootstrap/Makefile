@@ -32,7 +32,7 @@ define Package/debootstrap/description
  debootstrap is used to create a Debian base system from scratch, without
  requiring the availability of dpkg or apt. It does this by downloading .deb
  files from a mirror site, and carefully unpacking them into a directory which
- can eventually be chrooted into. 
+ can eventually be chrooted into.
 endef
 
 define Build/Compile
