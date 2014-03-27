@@ -28,9 +28,9 @@ define Package/gsm/Default
 endef
 
 define Package/gsm/description/Default
- An implementation of the European GSM 06.10 provisional standard 
- for full-rate speech transcoding, prI-ETS 300 036, which uses 
- RPE/LTP (residual pulse excitation/long term prediction) coding 
+ An implementation of the European GSM 06.10 provisional standard
+ for full-rate speech transcoding, prI-ETS 300 036, which uses
+ RPE/LTP (residual pulse excitation/long term prediction) coding
  at 13 kbit/s.
 endef
 
