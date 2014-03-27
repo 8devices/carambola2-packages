@@ -30,7 +30,7 @@ define Package/python-mysql
 endef
 
 define Package/python-mysql/description
- MySQLdb is an thread-compatible interface to the popular MySQL database 
+ MySQLdb is an thread-compatible interface to the popular MySQL database
  server that provides the Python database API.
 endef
 
