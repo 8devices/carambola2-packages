@@ -26,7 +26,7 @@ define Package/fprobe-ulog
 endef
 
 define Package/fprobe-ulog/description
-	A NetFlow probe obtaining packets through linux netfilter code 
+	A NetFlow probe obtaining packets through linux netfilter code
 	(iptables ULOG target).
 endef
 
@@ -38,11 +38,11 @@ define Build/Configure
 	)
 endef
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)
 endef
 
-define Package/fprobe-ulog/install	
+define Package/fprobe-ulog/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/fprobe-ulog $(1)/usr/bin/
 endef
