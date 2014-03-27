@@ -33,9 +33,9 @@ define Package/mini-httpd/Default/conffiles
 endef
 
 define Package/mini-httpd/Default/description
- mini_httpd is a small HTTP server. Its performance is not great, but for 
- low or medium traffic sites it's quite adequate. It implements all the 
- basic features of an HTTP server, including: 
+ mini_httpd is a small HTTP server. Its performance is not great, but for
+ low or medium traffic sites it's quite adequate. It implements all the
+ basic features of an HTTP server, including:
  - GET, HEAD, and POST methods
  - CGI
  - Basic authentication
