@@ -28,10 +28,10 @@ define Package/psybnc
 endef
 
 define Package/psybnc/description
-	psyBNC is an easy-to-use, multi-user, permanent 
-	IRC-Bouncer with many features. Some of its features 
-	vhost- and relay support to connected bouncers and an 
-	extensive online help system. Many other helpful 
+	psyBNC is an easy-to-use, multi-user, permanent
+	IRC-Bouncer with many features. Some of its features
+	vhost- and relay support to connected bouncers and an
+	extensive online help system. Many other helpful
 	functions are included.
 endef
 
@@ -41,7 +41,7 @@ else
   ENDIANESS:=0
 endif
 
-define Build/Compile	
+define Build/Compile
 	$(call Build/Compile/Default, \
 		CFLAGS="$(TARGET_CFLAGS)" \
 		HOSTCC="$(HOSTCC)" \
@@ -53,7 +53,7 @@ define Package/psybnc/conffiles
 /etc/psybnc.conf
 endef
 
-define Package/psybnc/install	
+define Package/psybnc/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/psybnc.sh $(1)/usr/sbin/psybnc
 	$(INSTALL_DIR) $(1)/usr/share/psybnc
