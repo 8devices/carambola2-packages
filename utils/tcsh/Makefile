@@ -34,7 +34,7 @@ define Package/tcsh/description
 	script command processor. It includes a
 	command-line editor, programmable word
 	completion, spelling correction, a history
-	mechanism, job control and a C-like syntax. 
+	mechanism, job control and a C-like syntax.
 endef
 
 define Package/tcsh/postinst
