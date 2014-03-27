@@ -1,5 +1,5 @@
-# 
-# Copyright (C) 2011 segal.ubi.pt 
+#
+# Copyright (C) 2011 segal.ubi.pt
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -36,7 +36,7 @@ define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	unzip $(DL_DIR)/$(PKG_SOURCE) -d $(PKG_BUILD_DIR)
 	mv $(PKG_BUILD_DIR)/$(PKG_NAME)$(PKG_VERSION)/* $(PKG_BUILD_DIR)
-	chmod +x $(PKG_BUILD_DIR)/configure 
+	chmod +x $(PKG_BUILD_DIR)/configure
 endef
 
 define Package/ntripcaster/install
