@@ -56,7 +56,7 @@ define Build/InstallDev
 endef
 
 define Package/libpam/install
-	$(INSTALL_DIR) $(1)/lib $(1)/lib/security $(1)/lib/security/pam_filter 
+	$(INSTALL_DIR) $(1)/lib $(1)/lib/security $(1)/lib/security/pam_filter
 	$(INSTALL_DIR) $(1)/etc $(1)/etc/pam.d
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(CP) $(PKG_INSTALL_DIR)/lib/*.so* $(1)/lib/
