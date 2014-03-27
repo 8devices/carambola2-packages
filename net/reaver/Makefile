@@ -50,4 +50,4 @@ define Package/reaver/install
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/src/reaver.db $(1)/etc/reaver/
 endef
 
-$(eval $(call BuildPackage,reaver)) 
+$(eval $(call BuildPackage,reaver))
