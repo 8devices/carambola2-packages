@@ -27,8 +27,8 @@ define Package/xmail
 endef
 
 define Package/xmail/description
- XMail is an Internet mail server featuring an SMTP, POP3 and finger server. 
- It's incredibly easy to set up and has lots of features including : 
+ XMail is an Internet mail server featuring an SMTP, POP3 and finger server.
+ It's incredibly easy to set up and has lots of features including :
  multiple domains, virtual users and spam protection.
 endef
 
