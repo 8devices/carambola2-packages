@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2008 David Cooper <dave@kupesoft.com>
 # Copyright (C) 2006-2012 OpenWrt.org
 #
@@ -85,4 +85,3 @@ define Package/sox/install
 endef
 
 $(eval $(call BuildPackage,sox))
-
