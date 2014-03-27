@@ -163,7 +163,7 @@ define Package/pulseaudio-daemon/install
 		$(1)/usr/bin \
 		$(1)/usr/lib \
 		$(1)/usr/lib/pulseaudio \
-		$(1)/usr/lib/pulse-$(PKG_VERSION)/modules 
+		$(1)/usr/lib/pulse-$(PKG_VERSION)/modules
 
 	$(INSTALL_BIN) \
 		$(PKG_INSTALL_DIR)/usr/bin/pulseaudio \
@@ -204,7 +204,7 @@ define Package/pulseaudio-daemon-avahi/install
 		$(1)/usr/lib \
 		$(1)/usr/lib/pulseaudio \
 		$(1)/usr/lib/pulse-$(PKG_VERSION)/modules \
-		$(1)/etc/dbus-1/system.d 
+		$(1)/etc/dbus-1/system.d
 
 	$(INSTALL_BIN) \
 		$(PKG_INSTALL_DIR)/usr/bin/pulseaudio \
