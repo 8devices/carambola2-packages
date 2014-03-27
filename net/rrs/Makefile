@@ -13,7 +13,7 @@ PKG_VERSION:=1.70
 PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://www.cycom.se/uploads/36/19 
+PKG_SOURCE_URL:=http://www.cycom.se/uploads/36/19
 PKG_MD5SUM:=b400d03c0e39e3e78a7327ba78f789f0
 
 include $(INCLUDE_DIR)/package.mk
