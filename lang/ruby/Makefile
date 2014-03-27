@@ -42,9 +42,9 @@ define Package/ruby/Default
 endef
 
 define Package/ruby/Default/description
- Ruby is the interpreted scripting language for quick and  easy 
- object-oriented programming.  It has many features to process text files 
- and to do system management tasks (as in perl).  It is simple, 
+ Ruby is the interpreted scripting language for quick and  easy
+ object-oriented programming.  It has many features to process text files
+ and to do system management tasks (as in perl).  It is simple,
  straight-forward, and extensible.
 endef
 
@@ -299,7 +299,7 @@ define Package/ruby-core/install
 		$(1)/usr/lib/ruby/$(PKG_LIBVER)/yaml \
 		$(1)/usr/lib/ruby/$(PKG_LIBVER)/yaml.rb \
 		$(1)/usr/lib/ruby/$(PKG_LIBVER)/*/syck.so \
-	
+
 	find $(1) -name '*.h' | xargs rm -f
 endef
 
