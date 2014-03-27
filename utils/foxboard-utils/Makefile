@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -28,7 +28,7 @@ define Package/foxboard-utils
 endef
 
 define Package/foxboard-utils/description
- This package contains a collection of tools for configuring the foxboard 
+ This package contains a collection of tools for configuring the foxboard
  gpio pins/leds.
 endef
 
