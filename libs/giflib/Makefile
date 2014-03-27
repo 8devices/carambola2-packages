@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -33,7 +33,7 @@ endef
 define Package/giflib/description
   giflib is a library for reading and writing gif images.
   It is API and ABI compatible with libungif which was in wide use while
-  the LZW compression algorithm was patented. 
+  the LZW compression algorithm was patented.
 endef
 
 TARGET_CFLAGS += $(FPIC)
