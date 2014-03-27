@@ -32,8 +32,8 @@ endef
 
 define Package/mcabber/description
   mcabber is a small Jabber console client.
-  mcabber includes features such as SASL/SSL/TLS support, MUC (Multi-User Chat) support, 
-  history logging, command completion, OpenPGP encryption, OTR (Off-the-Record 
+  mcabber includes features such as SASL/SSL/TLS support, MUC (Multi-User Chat) support,
+  history logging, command completion, OpenPGP encryption, OTR (Off-the-Record
   Messaging) support, dynamic modules and external action triggers.
 endef
 
@@ -41,7 +41,7 @@ CONFIGURE_ARGS += \
 	--with-libidn=$(STAGING_DIR)/usr/lib \
 	--with-gpgme-prefix=$(STAGING_DIR)/usr \
 	--enable-otr
-		
+
 define Package/mcabber/install
 	$(INSTALL_DIR) $(1)/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mcabber/mcabber $(1)/bin
