@@ -36,9 +36,9 @@ define Package/peercast/conffiles
 endef
 
 define Package/peercast/description
- PeerCast is a fresh new P2P streaming server. It can stream music and 
- video from a broad variety of formats. Many audio players can listen to 
- peercast streams, as it's been built to remain compatible with Nullsoft 
+ PeerCast is a fresh new P2P streaming server. It can stream music and
+ video from a broad variety of formats. Many audio players can listen to
+ peercast streams, as it's been built to remain compatible with Nullsoft
  Shoutcast.
 endef
 
