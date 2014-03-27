@@ -28,11 +28,11 @@ define Package/rrdcollect/Default
 endef
 
 define Package/rrdcollect/Default/description
- RRDcollect is a daemon which polls ceratin files in /proc/ 
- directory, gathering data and storing it inside RRDtool's 
- database files. Being written in C should be both fast 
- and resources-friendly. Supports both scanf(3)-style 
- pattern matches and perl compatible regular expressions.	
+ RRDcollect is a daemon which polls ceratin files in /proc/
+ directory, gathering data and storing it inside RRDtool's
+ database files. Being written in C should be both fast
+ and resources-friendly. Supports both scanf(3)-style
+ pattern matches and perl compatible regular expressions.
 endef
 
 define Package/rrdcollect10
@@ -46,7 +46,7 @@ endef
 define Package/rrdcollect10/description
 $(call Package/rrdcollect/Default/description)
  .
- This package contains the RRD collecting daemon, linked against 
+ This package contains the RRD collecting daemon, linked against
  rrdtool-1.0.x shared library.
 endef
 
@@ -61,7 +61,7 @@ endef
 define Package/rrdcollect12/description
 $(call Package/rrdcollect/Default/description)
  .
- This package contains the RRD collecting daemon, linked against 
+ This package contains the RRD collecting daemon, linked against
  rrdtool-1.2.x shared library.
 endef
 
