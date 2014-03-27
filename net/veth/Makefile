@@ -26,11 +26,11 @@ define Package/veth
 endef
 
 define Package/veth/description
-	VETH is a daemon that virtualizes a ethernet card in Linux. 
+	VETH is a daemon that virtualizes a ethernet card in Linux.
 	The virtualization is done via Universal TUN/TAP Driver.
 endef
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/veth \
 		CC="$(TARGET_CC)" \
 		CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)" \
