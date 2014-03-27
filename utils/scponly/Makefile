@@ -46,7 +46,7 @@ define Package/scponly/postinst
 echo "/usr/bin/scponly" >> $${IPKG_INSTROOT}/etc/shells
 endef
 
-define Package/scponly/install  
+define Package/scponly/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME) $(1)/usr/bin/
 endef
