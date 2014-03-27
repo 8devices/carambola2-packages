@@ -29,9 +29,9 @@ define Package/l2tpd
 endef
 
 define Package/l2tpd/description
-	l2tpd is the open source implementation of the L2TP tunneling 
-	protocol (RFC2661). It does implement both LAC and LNS role 
-	in a L2TP networking architecture. The main goal of this protocol is 
+	l2tpd is the open source implementation of the L2TP tunneling
+	protocol (RFC2661). It does implement both LAC and LNS role
+	in a L2TP networking architecture. The main goal of this protocol is
 	to tunnel PPP frame trough an ip network.
 endef
 
@@ -46,7 +46,7 @@ define Build/Compile
 	)
 endef
 
-define Package/l2tpd/install	
+define Package/l2tpd/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME) $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc/l2tpd
@@ -58,4 +58,3 @@ define Package/l2tpd/install
 endef
 
 $(eval $(call BuildPackage,l2tpd))
-
