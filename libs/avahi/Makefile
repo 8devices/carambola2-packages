@@ -45,11 +45,11 @@ define Package/avahi/Default
 endef
 
 define Package/avahi/Default/description
- Avahi is an mDNS/DNS-SD (aka RendezVous/Bonjour/ZeroConf) 
- implementation (library). It facilitates 
- service discovery on a local network -- this means that 
+ Avahi is an mDNS/DNS-SD (aka RendezVous/Bonjour/ZeroConf)
+ implementation (library). It facilitates
+ service discovery on a local network -- this means that
  you can plug your laptop or computer into a network and
- instantly be able to view other people who you can chat with, 
+ instantly be able to view other people who you can chat with,
  find printers to print to or find files being shared.
  This kind of technology is already found in MacOS X
  (branded 'Rendezvous', 'Bonjour' and sometimes 'ZeroConf')
@@ -86,9 +86,9 @@ endef
 define Package/avahi-autoipd/description
 $(call Package/avahi/Default/description)
  .
- This package implements IPv4LL, "Dynamic Configuration of IPv4 Link-Local 
- Addresses" (IETF RFC3927), a protocol for automatic IP address configuration 
- from the link-local 169.254.0.0/16 range without the need for a central 
+ This package implements IPv4LL, "Dynamic Configuration of IPv4 Link-Local
+ Addresses" (IETF RFC3927), a protocol for automatic IP address configuration
+ from the link-local 169.254.0.0/16 range without the need for a central
  server. It is primarily intended to be used in ad-hoc networks which lack a
  DHCP server.
 endef
@@ -234,7 +234,7 @@ CONFIGURE_ARGS += \
 	--enable-dbus
 else
 CONFIGURE_ARGS += \
-	--disable-dbus	
+	--disable-dbus
 endif
 
 CONFIGURE_VARS+= \
@@ -310,4 +310,3 @@ $(eval $(call BuildPackage,libavahi))
 $(eval $(call BuildPackage,avahi-autoipd))
 $(eval $(call BuildPackage,avahi-daemon))
 $(eval $(call BuildPackage,avahi-dnsconfd))
-
