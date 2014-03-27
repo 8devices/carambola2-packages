@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 - 2013 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -35,7 +35,7 @@ define Package/net-tools-dnsdomainname
   SECTION:=net
   CATEGORY:=Network
   DEPENDS += net-tools-hostname
-  TITLE:=net-tools - dnsdomainname  
+  TITLE:=net-tools - dnsdomainname
   URL:=http://www.tazenda.demon.co.uk/phil/net-tools
 endef
 
@@ -48,12 +48,12 @@ define Package/net-tools-domainname
   SECTION:=net
   CATEGORY:=Network
   DEPENDS += net-tools-hostname
-  TITLE:=net-tools - domainname  
+  TITLE:=net-tools - domainname
   URL:=http://www.tazenda.demon.co.uk/phil/net-tools
 endef
 
 define Package/net-tools-domainname/description
-  Program domainname from net-tools.			       
+  Program domainname from net-tools.
   Reports the system's NIS/YP domain name.
 endef
 
@@ -102,7 +102,7 @@ endef
 
 define Package/net-tools-iptunnel/description
   Program iptunnel from net-tools.
-  Adds, changes, deletes and shows an interface's tunnels. 
+  Adds, changes, deletes and shows an interface's tunnels.
 endef
 
 define Package/net-tools-mii-tool
@@ -113,15 +113,15 @@ define Package/net-tools-mii-tool
 endef
 
 define Package/net-tools-mii-tool/description
-  Program mii-tool from net-tools.  Checks or sets 
-  the status of a network interface's Media Independent 
+  Program mii-tool from net-tools.  Checks or sets
+  the status of a network interface's Media Independent
   Interface (MII) unit.
 endef
 
 define Package/net-tools-nameif
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=net-tools - nameif  
+  TITLE:=net-tools - nameif
   URL:=http://www.tazenda.demon.co.uk/phil/net-tools
 endef
 
@@ -138,7 +138,7 @@ define Package/net-tools-netstat
 endef
 
 define Package/net-tools-netstat/description
-  Program netstat from net-tools. Report network 
+  Program netstat from net-tools. Report network
   connections, routing tables, and interface statistics.
 endef
 
@@ -163,7 +163,7 @@ define Package/net-tools-plipconfig
 endef
 
 define Package/net-tools-plipconfig/description
-  Program plipconfig from net-tools.  Fine tune the 
+  Program plipconfig from net-tools.  Fine tune the
   PLIP device parameters, to improve its performance.
 endef
 
@@ -200,9 +200,9 @@ define Package/net-tools-slattach
 endef
 
 define Package/net-tools-slattach/description
-  Program slattach from net-tools.  Attaches a 
-  network interface to a serial line. This allows 
-  to use normal terminal lines for point-to-point 
+  Program slattach from net-tools.  Attaches a
+  network interface to a serial line. This allows
+  to use normal terminal lines for point-to-point
   links to other computers.
 endef
 
@@ -223,7 +223,7 @@ define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 	CC="$(TARGET_CC)" \
 	AR="$(TARGET_CROSS)ar" \
-	COPTS="$(TARGET_CFLAGS)" 
+	COPTS="$(TARGET_CFLAGS)"
 endef
 
 define Package/net-tools-arp/install
