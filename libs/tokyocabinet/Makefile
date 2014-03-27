@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -42,7 +42,7 @@ define Package/tokyocabinet/description
 endef
 
 CONFIGURE_ARGS += --prefix=/usr
-    
+
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)
 	$(MAKE) -C $(PKG_BUILD_DIR) DESTDIR="$(PKG_INSTALL_DIR)" install
