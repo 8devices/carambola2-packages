@@ -28,7 +28,7 @@ define Package/libmodbus
 endef
 
 define Package/libmodbus/description
-A Modbus library for Linux, Mac OS X, FreeBSD, QNX and Win32 
+A Modbus library for Linux, Mac OS X, FreeBSD, QNX and Win32
 endef
 
 TARGET_CFLAGS += $(FPIC)
