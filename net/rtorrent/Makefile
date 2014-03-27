@@ -37,7 +37,7 @@ define Package/rtorrent/description
  rTorrent is a BitTorrent client for ncurses, using the libtorrent library.
  The client and library is written in C++ with emphasis on speed and
  efficiency, while delivering equivalent features to those found in GUI based
- clients in an ncurses client. 
+ clients in an ncurses client.
 endef
 
 TARGET_LDFLAGS += -lpthread -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
