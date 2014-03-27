@@ -28,9 +28,9 @@ define Package/vnc-reflector
 endef
 
 define Package/vnc-reflector/description
-	VNC Reflector is a specialized VNC server which acts as 
-	a proxy sitting between real VNC server (a host) and a 
-	number of VNC clients. It was designed to work efficiently 
+	VNC Reflector is a specialized VNC server which acts as
+	a proxy sitting between real VNC server (a host) and a
+	number of VNC clients. It was designed to work efficiently
 	with large number of clients.
 endef
 
@@ -43,7 +43,7 @@ define Build/Compile
 	)
 endef
 
-define Package/vnc-reflector/install	
+define Package/vnc-reflector/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vncreflector $(1)/usr/sbin/
 endef
