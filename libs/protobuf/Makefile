@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -34,7 +34,7 @@ endef
 define Package/protobuf/description
  Protocol Buffers are a way of encoding structured data in an efficient
  yet extensible format. Google uses Protocol Buffers for almost all
- of its internal RPC protocols and file formats. 
+ of its internal RPC protocols and file formats.
 endef
 
 CONFIGURE_ARGS += --with-protoc=$(STAGING_DIR_HOST)/bin/protoc
@@ -64,7 +64,7 @@ define Package/protobuf/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libprotobuf-lite.so* \
 		$(1)/usr/lib/
-	
+
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libprotobuf.so* \
 		$(1)/usr/lib/
