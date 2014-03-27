@@ -27,7 +27,7 @@ define Package/mako
   CATEGORY:=Languages
   TITLE:=Mako Templates for Python
   URL:=http://www.makotemplates.org/
-  DEPENDS:=+python 
+  DEPENDS:=+python
 endef
 
 define Package/mako/description
