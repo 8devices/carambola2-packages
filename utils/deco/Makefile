@@ -29,10 +29,10 @@ define Package/deco
 endef
 
 define Package/deco/description
-	A clone of Norton Commander for Unix. Text-based, full featured 
+	A clone of Norton Commander for Unix. Text-based, full featured
 	file manager.
 endef
-  
+
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)
 endef
