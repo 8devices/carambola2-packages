@@ -33,11 +33,11 @@ define Package/vncrepeater/conffiles
 endef
 
 define Package/vncrepeater/description
- Viewer can be behind Nat router or directly connected to the internet 
- instead of forwarding serveral ports, you only need to forward 1 port. 
- If the PC that runs the Repeater has access to the local DNS server, 
+ Viewer can be behind Nat router or directly connected to the internet
+ instead of forwarding serveral ports, you only need to forward 1 port.
+ If the PC that runs the Repeater has access to the local DNS server,
  you can use your local DNS names instead of 10.10.10.12.
- This could be handy when you have a dynamic DHCP server allocating 
+ This could be handy when you have a dynamic DHCP server allocating
  ip adresses for your PC.
 endef
 
@@ -49,7 +49,7 @@ define Build/Compile
 	)
 endef
 
-define Package/vncrepeater/install	
+define Package/vncrepeater/install
 	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/repeater $(1)/usr/sbin/$(PKG_NAME)
 	$(INSTALL_DIR) $(1)/etc
