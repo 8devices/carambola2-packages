@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2009 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -21,7 +21,7 @@ define Package/luaexpat
   SUBMENU:=Lua
   SECTION:=lang
   CATEGORY:=Languages
-  TITLE:=LuaExpat 
+  TITLE:=LuaExpat
   URL:=http://www.keplerproject.org/luaexpat/
   DEPENDS:=+lua +libexpat
 endef
@@ -42,7 +42,7 @@ define Build/Compile
 	COMPAT_DIR="$(PKG_BUILD_DIR)/compat-5.1r5" \
 	LIB_OPTION="-shared $(TARGET_LDFLAGS)" \
 	CC="$(TARGET_CC) $(TARGET_CFLAGS) $(FPIC) -std=c99" \
-	LD="$(TARGET_CROSS)ld -shared" 
+	LD="$(TARGET_CROSS)ld -shared"
 endef
 
 define Package/luaexpat/install
