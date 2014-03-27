@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -66,4 +66,3 @@ endef
 
 $(eval $(call HostBuild))
 $(eval $(call BuildPackage,libexpat))
-
