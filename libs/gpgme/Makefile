@@ -30,10 +30,10 @@ define Package/libgpgme
 endef
 
 define Package/libgpgme/description
-  GnuPG Made Easy (GPGME) is a library designed to make access to GnuPG easier for 
-  applications. It provides a High-Level Crypto API for encryption, decryption, signing, 
-  signature verification and key management. Currently it uses GnuPG as its backend but 
-  the API isn't restricted to this engine; in fact we have already developed a backend 
+  GnuPG Made Easy (GPGME) is a library designed to make access to GnuPG easier for
+  applications. It provides a High-Level Crypto API for encryption, decryption, signing,
+  signature verification and key management. Currently it uses GnuPG as its backend but
+  the API isn't restricted to this engine; in fact we have already developed a backend
   for CMS (S/MIME).
 endef
 
