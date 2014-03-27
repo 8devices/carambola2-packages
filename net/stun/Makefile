@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2008-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -79,7 +79,7 @@ define Package/stund/conffiles
 endef
 
 define Package/stun-client/install
- 	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/client $(1)/usr/sbin/stun-client
 endef
 
