@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -25,9 +25,9 @@ define Package/libnmeap
 endef
 
 define Package/libnmeap/description
-The NMEAP parser is intended for use in applications that need to input NMEA-0183 
-	data from a GPS (typically over a serial port). NMEAP is a linkable library written in portable 
-	standard C and is suitable for both desktop and embedded applications. 
+The NMEAP parser is intended for use in applications that need to input NMEA-0183
+	data from a GPS (typically over a serial port). NMEAP is a linkable library written in portable
+	standard C and is suitable for both desktop and embedded applications.
 	It is licensed under the BSD open source license.
 endef
 
