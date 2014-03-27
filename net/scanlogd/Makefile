@@ -31,19 +31,19 @@ define Package/scanlogd
 endef
 
 define Package/scanlogd/description
-	Scanlogd is a TCP port scan detection tool, originally designed 
+	Scanlogd is a TCP port scan detection tool, originally designed
 	to illustrate various attacks an IDS developer has to deal with.
-	Thus, unlike some of the other port scan detection tools out there, 
+	Thus, unlike some of the other port scan detection tools out there,
 	scanlogd is designed to be totally safe to use.
 endef
 
-define Build/Configure	
+define Build/Configure
 	$(SED) 's,^#define \(SCANLOGD_CHROOT\).*,#define \1 "/var/run/scanlogd",' \
 	    -e 's,^#undef \(SCANLOGD_DEVICE\),#define \1 "all",' \
 	    $(PKG_BUILD_DIR)/params.h
 endef
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		$(TARGET_CONFIGURE_OPTS) \
 		CC="$(TARGET_CC)" LD="$(TARGET_CC)" CFLAGS="-c $(TARGET_CFLAGS)" \
@@ -54,7 +54,7 @@ define Build/Compile
 		libnids
 endef
 
-define Package/scanlogd/install	
+define Package/scanlogd/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME) $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc/init.d
