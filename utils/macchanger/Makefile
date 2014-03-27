@@ -27,7 +27,7 @@ define Package/macchanger
 endef
 
 define Package/macchanger/description
-	This is a GNU/Linux utility for viewing/manipulating the MAC address 
+	This is a GNU/Linux utility for viewing/manipulating the MAC address
 	of network interfaces.
 endef
 
