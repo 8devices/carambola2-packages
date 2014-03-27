@@ -31,9 +31,9 @@ define Package/updatedd
 endef
 
 define Package/updatedd/description
-Updatedd is a small tool that will update one of many dynamic 
-	dns services on boot. 
-	Please look at the /etc/init.d/ddns script for more info. 
+Updatedd is a small tool that will update one of many dynamic
+	dns services on boot.
+	Please look at the /etc/init.d/ddns script for more info.
 
 endef
 
