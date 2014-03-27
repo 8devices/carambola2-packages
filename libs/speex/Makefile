@@ -35,11 +35,11 @@ endef
 
 define Package/libspeex/description
 	Open source patent-free speech compression codec library.
-	Speex is an Open Source/Free Software patent-free audio compression 
-	format designed for speech. The Speex Project aims to lower the 
-	barrier of entry for voice applications by providing a free 
-	alternative to expensive proprietary speech codecs. Moreover, Speex 
-	is well-adapted to Internet applications and provides useful features 
+	Speex is an Open Source/Free Software patent-free audio compression
+	format designed for speech. The Speex Project aims to lower the
+	barrier of entry for voice applications by providing a free
+	alternative to expensive proprietary speech codecs. Moreover, Speex
+	is well-adapted to Internet applications and provides useful features
 	that are not present in most other codecs.
 
 	This package contains the shared codec library, needed by other programs.
@@ -49,11 +49,11 @@ TARGET_CFLAGS += $(FPIC)
 
 define Package/libspeexdsp/description
 	Open source patent-free speech compression codec library.
-	Speex is an Open Source/Free Software patent-free audio compression 
-	format designed for speech. The Speex Project aims to lower the 
-	barrier of entry for voice applications by providing a free 
-	alternative to expensive proprietary speech codecs. Moreover, Speex 
-	is well-adapted to Internet applications and provides useful features 
+	Speex is an Open Source/Free Software patent-free audio compression
+	format designed for speech. The Speex Project aims to lower the
+	barrier of entry for voice applications by providing a free
+	alternative to expensive proprietary speech codecs. Moreover, Speex
+	is well-adapted to Internet applications and provides useful features
 	that are not present in most other codecs.
 
 	This package contains the shared dsp library, needed by other programs.
@@ -74,7 +74,7 @@ endef
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
-	  	bin_PROGRAMS="" \
+		bin_PROGRAMS="" \
 		all install
 endef
 
@@ -101,4 +101,3 @@ endef
 
 $(eval $(call BuildPackage,libspeex))
 $(eval $(call BuildPackage,libspeexdsp))
-
