@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -27,7 +27,7 @@ endef
 define Package/wshaper/description
  A script to do traffing shaping with the HTB algorithm.
  Wshaper attempts to:
- * Maintain low latency for interfactive traffic at all times 
+ * Maintain low latency for interfactive traffic at all times
  * Allow 'surfing' at reasonable speeds while up or downloading
  * Make sure uploads don't harm downloads, and the other way around
 endef
