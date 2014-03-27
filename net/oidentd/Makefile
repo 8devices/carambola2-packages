@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -20,7 +20,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/oidentd
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=Identd server 
+  TITLE:=Identd server
   URL:=http://dev.ojnk.net/
 endef
 
