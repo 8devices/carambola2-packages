@@ -33,7 +33,7 @@ define Package/btrfs-progs/description
  Btrfs is a new copy on write filesystem for Linux aimed at implementing
  advanced features while focusing on fault tolerance, repair and easy
  administration. Initially developed by Oracle, Btrfs is licensed under the
- GPL and open for contribution from anyone. 
+ GPL and open for contribution from anyone.
 endef
 
 progs = btrfsctl mkfs.btrfs btrfs-debug-tree btrfs-show btrfs-vol btrfsck
