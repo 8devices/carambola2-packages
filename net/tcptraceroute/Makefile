@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -30,15 +30,15 @@ define Build/Configure
 		, \
 	        CPPFLAGS="$$$$CPPFLAGS -I$(STAGING_DIR)/usr/lib/libnet-1.1.x/include" \
 	        LDFLAGS="$$$$LDFLAGS -L$(STAGING_DIR)/usr/lib/libnet-1.1.x/lib" \
-        	PATH="$(STAGING_DIR)/usr/lib/libnet-1.1.x/bin:$$$$PATH" \
+		PATH="$(STAGING_DIR)/usr/lib/libnet-1.1.x/bin:$$$$PATH" \
         )
 endef
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)
 endef
 
-define Package/tcptraceroute/install	
+define Package/tcptraceroute/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tcptraceroute $(1)/usr/bin/
 endef
