@@ -32,7 +32,7 @@ define Package/libid3tag
 endef
 
 define Package/libid3tag/description
-	libid3tag is a library for reading and (eventually) writing ID3 tags, both 
+	libid3tag is a library for reading and (eventually) writing ID3 tags, both
 	ID3v1 and the various versions of ID3v2.
 endef
 
