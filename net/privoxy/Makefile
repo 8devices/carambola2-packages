@@ -34,11 +34,11 @@ define Package/privoxy
 endef
 
 define Package/privoxy/description
-	Privoxy is a web proxy with advanced filtering capabilities for 
-	protecting privacy, modifying web page content, managing cookies, 
-	controlling access, and removing ads, banners, pop-ups and other 
-	obnoxious Internet junk. Privoxy has a very flexible configuration 
-	and can be customized to suit individual needs and tastes. Privoxy 
+	Privoxy is a web proxy with advanced filtering capabilities for
+	protecting privacy, modifying web page content, managing cookies,
+	controlling access, and removing ads, banners, pop-ups and other
+	obnoxious Internet junk. Privoxy has a very flexible configuration
+	and can be customized to suit individual needs and tastes. Privoxy
 	has application for both stand-alone systems and multi-user networks.
 endef
 
