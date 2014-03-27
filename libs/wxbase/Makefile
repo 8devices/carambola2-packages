@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007-2009 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -31,9 +31,9 @@ endef
 
 define Package/libwxbase/description
  wxBase contains most of the non-GUI classes from the wxWindows cross-
- -platform C++ framework. There are 2 categories: generally useful portable 
- code (date/time handling, command line parsing, regular expression support) 
- and wrappers for the OS objects (files, directories, sockets, threads, 
+ -platform C++ framework. There are 2 categories: generally useful portable
+ code (date/time handling, command line parsing, regular expression support)
+ and wrappers for the OS objects (files, directories, sockets, threads,
  etc.) allowing you to write portable programs easily.
 endef
 
