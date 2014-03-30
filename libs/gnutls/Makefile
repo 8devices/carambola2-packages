@@ -8,17 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gnutls
-PKG_VERSION:=2.8.6
-PKG_RELEASE:=2
+PKG_VERSION:=3.2.12
+PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@GNU/gnutls \
-	ftp://ftp.mirrors.wiretapped.net/pub/security/network-security/gnutls/
-PKG_MD5SUM:=eb0a6d7d3cb9ac684d971c14f9f6d3ba
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
+PKG_SOURCE_URL:=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2
+PKG_MD5SUM:=f507365940de8f095e1d867c6f0842f6
+PKG_MAINTAINER:=Nikos Mavrogiannopoulos <nmav@gnutls.org>
 
-PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
-PKG_LIBTOOL_PATHS:=. lib libextra
+PKG_LIBTOOL_PATHS:=. lib
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -27,13 +26,16 @@ define Package/gnutls/Default
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=GNU TLS
-  URL:=http://www.gnu.org/software/gnutls/
+  URL:=http://www.gnutls.org/
 endef
 
 define Package/gnutls/Default/description
- GnuTLS is a project that aims to develop a library which provides a
- secure layer, over a reliable transport layer. Currently the GnuTLS
- library implements the SSL 3.0, TLS 1.0, and TLS 1.1 protocols.
+ GnuTLS is a secure communications library implementing the SSL, TLS
+ and DTLS protocols and technologies around them. It provides a simple
+ C language application programming interface (API) to access the secure
+ communications protocols as well as APIs to parse and write X.509, PKCS12,
+ OpenPGP and other required structures. It is aimed to be portable and
+ efficient with focus on security and interoperability.
 endef
 
 
@@ -42,7 +44,7 @@ $(call Package/gnutls/Default)
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE+= (certool utility)
-  DEPENDS+= +libgnutls +libgnutls-extra +libncurses +libreadline
+  DEPENDS+= +libgnutls
 endef
 
 define Package/certtool/description
@@ -56,7 +58,7 @@ $(call Package/gnutls/Default)
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE+= (utilities)
-  DEPENDS+= +libgnutls +libgnutls-extra
+  DEPENDS+= +libgnutls
 endef
 
 define Package/gnutls-utils/description
@@ -69,24 +71,12 @@ endef
 define Package/libgnutls
 $(call Package/gnutls/Default)
   TITLE+= (library)
-  DEPENDS+= +zlib +libgcrypt +libgpg-error
+  DEPENDS+= +libnettle
 endef
 
 define Package/libgnutls/description
 $(call Package/gnutls/Default/description)
  This package contains the GnuTLS shared library, needed by other programs.
-endef
-
-
-define Package/libgnutls-extra
-$(call Package/gnutls/Default)
-  TITLE+= (extra library)
-  DEPENDS+= +libgnutls
-endef
-
-define Package/libgnutls-extra/description
-$(call Package/gnutls/Default/description)
- This package contains the GnuTLS extra shared library.
 endef
 
 
@@ -105,13 +95,17 @@ CONFIGURE_ARGS+= \
 	--enable-shared \
 	--enable-static \
 	--disable-openpgp-authentication \
+	--disable-libdane \
 	--disable-guile \
-	--with-included-libcfg \
+	--disable-nls \
+	--without-zlib \
 	--with-included-libtasn1 \
-	--with-libgcrypt-prefix="$(STAGING_DIR)/usr" \
-	--with-libreadline-prefix="$(STAGING_DIR)/usr" \
-	--with-libz-prefix="$(STAGING_DIR)/usr" \
-	--without-lzo \
+	--enable-local-libopts \
+	--disable-doc \
+	--disable-tests \
+	--disable-rsa-export \
+	--disable-crywrap \
+	--without-p11-kit \
 
 # XXX: AM_CFLAGS duplicates with CFLAGS
 MAKE_FLAGS:= \
@@ -132,10 +126,10 @@ define Build/InstallDev
 		$(PKG_INSTALL_DIR)/usr/include/gnutls \
 		$(1)/usr/include/
 	$(CP) \
-		$(PKG_INSTALL_DIR)/usr/lib/libgnutls{,-extra,-openssl}.{a,so*} \
+		$(PKG_INSTALL_DIR)/usr/lib/libgnutls{,-openssl}.{a,so*} \
 		$(1)/usr/lib/
 	$(CP) \
-		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/gnutls{,-extra}.pc \
+		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/gnutls.pc \
 		$(1)/usr/lib/pkgconfig/
 endef
 
@@ -156,6 +150,7 @@ define Package/gnutls-utils/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/gnutls-{cli,serv} \
 		$(PKG_INSTALL_DIR)/usr/bin/psktool \
+		$(PKG_INSTALL_DIR)/usr/bin/ocsptool \
 		$(PKG_INSTALL_DIR)/usr/bin/srptool \
 		$(1)/usr/bin/
 endef
@@ -164,12 +159,6 @@ endef
 define Package/libgnutls/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libgnutls.so.* $(1)/usr/lib/
-endef
-
-
-define Package/libgnutls-extra/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libgnutls-extra.so.* $(1)/usr/lib/
 endef
 
 
@@ -182,5 +171,4 @@ endef
 $(eval $(call BuildPackage,certtool))
 $(eval $(call BuildPackage,gnutls-utils))
 $(eval $(call BuildPackage,libgnutls))
-$(eval $(call BuildPackage,libgnutls-extra))
 $(eval $(call BuildPackage,libgnutls-openssl))
