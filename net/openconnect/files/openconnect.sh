@@ -42,11 +42,11 @@ proto_openconnect_setup() {
 		umask 077
 		pwfile="/var/run/openconnect-$config.passwd"
 		echo "$password" > "$pwfile"
-		append cmdline "--passwd-file=$pwfile"
+		append cmdline "--passwd-on-stdin"
 	}
 
 	proto_export INTERFACE="$config"
-	proto_run_command "$config" /usr/sbin/openconnect $cmdline
+	proto_run_command "$config" /usr/sbin/openconnect $cmdline <$pwfile
 }
 
 proto_openconnect_teardown() {

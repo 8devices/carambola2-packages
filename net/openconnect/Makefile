@@ -8,26 +8,30 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openconnect
-PKG_VERSION:=4.08
+PKG_VERSION:=5.03
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=ftp://ftp.infradead.org/pub/openconnect/
-PKG_MD5SUM:=3dd065194d87c08084675d255c8e29ef
+PKG_MD5SUM:=ff43ed1dbaccd2537fd7c5bfb04295a6
 
 include $(INCLUDE_DIR)/package.mk
+
+define Package/openconnect/config
+	source "$(SOURCE)/Config.in"
+endef
 
 define Package/openconnect
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libxml2 +libopenssl +kmod-tun +resolveip
+  DEPENDS:=+libxml2 +kmod-tun +resolveip +OPENCONNECT_OPENSSL:libopenssl +OPENCONNECT_GNUTLS:libgnutls
   TITLE:=VPN client for Cisco's AnyConnect SSL VPN
   URL:=http://www.infradead.org/openconnect/
   SUBMENU:=VPN
 endef
 
 define Package/openconnect/description
-	A VPN client compatible with Cisco's AnyConnect SSL VPN.
+	A VPN client compatible with Cisco's AnyConnect SSL VPN and ocserv.
 
         OpenConnect is a client for Cisco's AnyConnect SSL VPN, which is
         supported by IOS 12.4(9)T or later on Cisco SR500, 870, 880, 1800, 2800,
@@ -37,6 +41,11 @@ endef
 CONFIGURE_ARGS += \
 	--disable-shared \
 	--with-vpnc-script=/lib/netifd/vpnc-script
+
+ifeq ($(CONFIG_OPENCONNECT_OPENSSL),y)
+CONFIGURE_ARGS += \
+	--without-gnutls
+endif
 
 define Package/openconnect/install
 	$(INSTALL_DIR) $(1)/lib/netifd/proto
