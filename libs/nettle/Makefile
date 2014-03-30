@@ -1,0 +1,75 @@
+#
+# Copyright (C) 2014 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=nettle
+PKG_VERSION:=2.7.1
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=@GNU/nettle
+PKG_MD5SUM:=003d5147911317931dd453520eb234a5
+PKG_MAINTAINER:=Nikos Mavrogiannopoulos <nmav@gnutls.org>
+
+PKG_LICENSE:=LGPLv2
+PKG_LICENSE_FILES:=COPYING
+
+PKG_FIXUP:=
+PKG_BUILD_PARALLEL:=1
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/libnettle
+  SECTION:=libs
+  CATEGORY:=Libraries
+  TITLE:=GNU crypto library
+  URL:=http://www.lysator.liu.se/~nisse/nettle/
+  DEPENDS+= +libgmp
+endef
+
+TARGET_CFLAGS += $(FPIC)
+
+CONFIGURE_ARGS += \
+	--enable-shared \
+	--disable-openssl \
+	--disable-documentation \
+	--enable-static
+
+ifeq ($(CONFIG_CPU_SUBTYPE),neon)
+CONFIGURE_ARGS += \
+	--enable-arm-neon
+endif
+
+define Build/Compile
+	$(call Build/Compile/Default, \
+		DESTDIR="$(PKG_INSTALL_DIR)" \
+		CC="$(TARGET_CC)" \
+		all install \
+	)
+endef
+
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/include/nettle
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/nettle/*.h $(1)/usr/include/nettle/
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libnettle.{a,so*} $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhogweed.{a,so*} $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/nettle.pc \
+		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/hogweed.pc \
+		$(1)/usr/lib/pkgconfig/
+endef
+
+define Package/libnettle/install
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libnettle.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhogweed.so.* $(1)/usr/lib/
+endef
+
+$(eval $(call BuildPackage,libnettle))
