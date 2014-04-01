@@ -33,7 +33,7 @@ define Package/smap-to-devinfo
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=Telephony
-  DEPENDS:=mac-to-devinfo +smap +httping
+  DEPENDS:=+mac-to-devinfo +smap +httping
   TITLE:=SIP Device Information from Scan
 endef
 
@@ -46,7 +46,7 @@ endef
 define Package/netdiscover-to-devinfo
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=mac-to-devinfo +netdiscover
+  DEPENDS:=+mac-to-devinfo +netdiscover
   TITLE:=Device Information from Scan for MAC addresses
 endef
 
