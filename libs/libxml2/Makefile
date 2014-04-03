@@ -70,6 +70,7 @@ CONFIGURE_ARGS += \
 	--with-xpath \
 	--with-xptr \
 	--with-zlib \
+	--without-lzma
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(2)/bin
