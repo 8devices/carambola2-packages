@@ -150,7 +150,7 @@ load_server() {
         ARGS_tunnels=""
 
 	count=0
-        config_foreach load_tunnelR tunnelR && config_foreach load_tunnelL tunnelL && config_foreach load_tunnelD tunnelD
+        config_foreach load_tunnelR tunnelR && config_foreach load_tunnelL tunnelL && config_foreach load_tunnelD tunnelD && config_foreach load_tunnelW tunnelW
 	[ -n "$error" ] 	&& { logger -p user.err -t "sshtunnel" "tunnels to $server not started - $error"; return; }
 	[ "$count" -eq 0 ] 	&& { logger -p user.err -t "sshtunnel" "tunnels to $server not started - no tunnels defined"; return; }
 
