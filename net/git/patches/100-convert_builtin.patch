@@ -1,6 +1,6 @@
 --- a/Makefile
 +++ b/Makefile
-@@ -533,16 +533,7 @@ EXTRA_PROGRAMS =
+@@ -536,16 +536,7 @@ EXTRA_PROGRAMS =
  # ... and all the rest that could be moved out of bindir to gitexecdir
  PROGRAMS += $(EXTRA_PROGRAMS)
  
@@ -18,7 +18,7 @@
  
  # Binary suffix, set to .exe for Windows builds
  X =
-@@ -990,6 +981,12 @@ BUILTIN_OBJS += builtin/var.o
+@@ -993,6 +984,12 @@ BUILTIN_OBJS += builtin/var.o
  BUILTIN_OBJS += builtin/verify-pack.o
  BUILTIN_OBJS += builtin/verify-tag.o
  BUILTIN_OBJS += builtin/write-tree.o
@@ -31,7 +31,7 @@
  
  GITLIBS = $(LIB_FILE) $(XDIFF_LIB)
  EXTLIBS =
-@@ -1153,7 +1150,7 @@ endif
+@@ -1156,7 +1153,7 @@ endif
  EXTLIBS += -lz
  
  ifndef NO_OPENSSL
@@ -40,7 +40,7 @@
  	ifdef OPENSSLDIR
  		BASIC_CFLAGS += -I$(OPENSSLDIR)/include
  		OPENSSL_LINK = -L$(OPENSSLDIR)/$(lib) $(CC_LD_DYNPATH)$(OPENSSLDIR)/$(lib)
-@@ -2046,10 +2043,6 @@ endif
+@@ -2054,10 +2051,6 @@ endif
  git-%$X: %.o GIT-LDFLAGS $(GITLIBS)
  	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) $(filter %.o,$^) $(LIBS)
  
@@ -51,7 +51,7 @@
  git-http-fetch$X: http.o http-walker.o http-fetch.o GIT-LDFLAGS $(GITLIBS)
  	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) $(filter %.o,$^) \
  		$(LIBS) $(CURL_LIBCURL)
-@@ -2358,24 +2351,22 @@ endif
+@@ -2366,24 +2359,22 @@ endif
  	bindir=$$(cd '$(DESTDIR_SQ)$(bindir_SQ)' && pwd) && \
  	execdir=$$(cd '$(DESTDIR_SQ)$(gitexec_instdir_SQ)' && pwd) && \
  	{ test "$$bindir/" = "$$execdir/" || \
@@ -222,7 +222,7 @@
  	const char **user_argv;
 --- a/upload-pack.c
 +++ b/upload-pack.c
-@@ -786,7 +786,7 @@ static int upload_pack_config(const char
+@@ -781,7 +781,7 @@ static int upload_pack_config(const char
  	return parse_hide_refs_config(var, value, "uploadpack");
  }
  
