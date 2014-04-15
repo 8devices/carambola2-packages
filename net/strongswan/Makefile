@@ -48,7 +48,6 @@ PKG_MOD_AVAILABLE:= \
 	kernel-libipsec \
 	kernel-netlink \
 	kernel-pfkey \
-	kernel-pfroute \
 	ldap \
 	led \
 	load-tester \
@@ -203,7 +202,7 @@ endef
 define Package/strongswan-full/description
 $(call Package/strongswan/description/Default)
  This meta-package contains dependencies for all of the strongswan plugins
- except kernel-klips, kernel-libipsec, kernel-pfkey, kernel-pfroute,
+ except kernel-klips, kernel-libipsec, kernel-pfkey,
  socket-dynamic and which are ommitted in favor of the kernel-netlink and
  socket-default plugins.
 endef
@@ -482,7 +481,6 @@ $(eval $(call BuildPlugin,kernel-klips,KLIPS kernel interface,))
 $(eval $(call BuildPlugin,kernel-libipsec,libipsec kernel interface,))
 $(eval $(call BuildPlugin,kernel-netlink,netlink kernel interface,))
 $(eval $(call BuildPlugin,kernel-pfkey,PK_KEY kernel interface,))
-$(eval $(call BuildPlugin,kernel-pfroute,PF_ROUTE kernel interface,))
 $(eval $(call BuildPlugin,ldap,LDAP,+PACKAGE_strongswan-mod-ldap:libopenldap))
 $(eval $(call BuildPlugin,led,LED blink on IKE activity,))
 $(eval $(call BuildPlugin,load-tester,load testing,))
