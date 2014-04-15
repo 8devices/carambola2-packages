@@ -88,7 +88,8 @@ TARGET_CFLAGS+=$(FPIC)
 MAKE_FLAGS+= \
 	$(TARGET_CONFIGURE_OPTS) \
 	AR="$(AR) cr" \
-	LD="$(TARGET_CC) -o"
+	LD="$(TARGET_CC) -o" \
+	OSTYPE=Linux
 
 define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
