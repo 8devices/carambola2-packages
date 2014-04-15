@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=strongswan
-PKG_VERSION:=5.1.1
+PKG_VERSION:=5.1.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://download.strongswan.org/ http://download2.strongswan.org/
-PKG_MD5SUM:=e3af3d493d22286be3cd794533a8966a
+PKG_MD5SUM:=1d1c108775242743cd8699215b2918c3
 
 PKG_MOD_AVAILABLE:= \
 	addrblock \
@@ -306,7 +306,7 @@ endef
 
 define Package/strongswan-utils/description
 $(call Package/strongswan/description/Default)
- This package contains the openac, pki & scepclient utilities.
+ This package contains the pki & scepclient utilities.
 endef
 
 define BuildPlugin
@@ -391,7 +391,7 @@ define Package/strongswan-utils/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/pki $(1)/usr/bin/
 	$(INSTALL_DIR) $(1)/usr/lib/ipsec
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/ipsec/{openac,scepclient} $(1)/usr/lib/ipsec/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/ipsec/scepclient $(1)/usr/lib/ipsec/
 endef
 
 define Plugin/duplicheck/install
