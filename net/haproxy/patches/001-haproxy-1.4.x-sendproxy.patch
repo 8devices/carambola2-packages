@@ -16,8 +16,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  src/standard.c            |   9 ++-
  10 files changed, 275 insertions(+), 19 deletions(-)
 
---- a/doc/configuration.txt
-+++ b/doc/configuration.txt
+Index: haproxy-1.4.25/doc/configuration.txt
+===================================================================
+--- haproxy-1.4.25.orig/doc/configuration.txt
++++ haproxy-1.4.25/doc/configuration.txt
 @@ -1343,6 +1343,7 @@ bind [<address>]:<port_range> [, ...] tr
  bind [<address>]:<port_range> [, ...] id <id>
  bind [<address>]:<port_range> [, ...] name <name>
@@ -58,7 +60,7 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  
  
  bind-process [ all | odd | even | <number 1-32> ] ...
-@@ -7237,7 +7253,9 @@ marked with a star ('*') after the field
+@@ -7257,7 +7273,9 @@ marked with a star ('*') after the field
  
  Detailed fields description :
    - "client_ip" is the IP address of the client which initiated the TCP
@@ -69,7 +71,7 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  
    - "client_port" is the TCP port of the client which initiated the connection.
  
-@@ -7410,7 +7428,9 @@ with a star ('*') after the field name b
+@@ -7430,7 +7448,9 @@ with a star ('*') after the field name b
  
  Detailed fields description :
    - "client_ip" is the IP address of the client which initiated the TCP
@@ -80,8 +82,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  
    - "client_port" is the TCP port of the client which initiated the connection.
  
---- a/include/common/standard.h
-+++ b/include/common/standard.h
+Index: haproxy-1.4.25/include/common/standard.h
+===================================================================
+--- haproxy-1.4.25.orig/include/common/standard.h
++++ haproxy-1.4.25/include/common/standard.h
 @@ -269,6 +269,28 @@ static inline unsigned int __strl2uic(co
  	return i;
  }
@@ -123,8 +127,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  
  static inline char *cut_crlf(char *s) {
  
---- a/include/proto/client.h
-+++ b/include/proto/client.h
+Index: haproxy-1.4.25/include/proto/client.h
+===================================================================
+--- haproxy-1.4.25.orig/include/proto/client.h
++++ haproxy-1.4.25/include/proto/client.h
 @@ -25,6 +25,7 @@
  #include <common/config.h>
  #include <types/session.h>
@@ -133,8 +139,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  void get_frt_addr(struct session *s);
  int event_accept(int fd);
  
---- a/include/types/buffers.h
-+++ b/include/types/buffers.h
+Index: haproxy-1.4.25/include/types/buffers.h
+===================================================================
+--- haproxy-1.4.25.orig/include/types/buffers.h
++++ haproxy-1.4.25/include/types/buffers.h
 @@ -135,16 +135,16 @@
   * The field is blanked by buffer_init() and only by analysers themselves
   * afterwards.
@@ -162,8 +170,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  #define AN_REQ_PRST_RDP_COOKIE  0x00000400  /* persistence on rdp cookie */
  #define AN_REQ_HTTP_XFER_BODY   0x00000800  /* forward request body */
  
---- a/include/types/protocols.h
-+++ b/include/types/protocols.h
+Index: haproxy-1.4.25/include/types/protocols.h
+===================================================================
+--- haproxy-1.4.25.orig/include/types/protocols.h
++++ haproxy-1.4.25/include/types/protocols.h
 @@ -72,6 +72,7 @@
  #define LI_O_FOREIGN	0x0002	/* permit listening on foreing addresses */
  #define LI_O_NOQUICKACK	0x0004	/* disable quick ack of immediate data (linux) */
@@ -172,8 +182,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  
  /* The listener will be directly referenced by the fdtab[] which holds its
   * socket. The listener provides the protocol-specific accept() function to
---- a/src/cfgparse.c
-+++ b/src/cfgparse.c
+Index: haproxy-1.4.25/src/cfgparse.c
+===================================================================
+--- haproxy-1.4.25.orig/src/cfgparse.c
++++ haproxy-1.4.25/src/cfgparse.c
 @@ -1467,6 +1467,16 @@ int cfg_parse_listen(const char *file, i
  #endif
  			}
@@ -200,7 +212,7 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  			      file, linenum, args[0]);
  			err_code |= ERR_ALERT | ERR_FATAL;
  			goto out;
-@@ -5726,6 +5736,9 @@ out_uri_auth_compat:
+@@ -5743,6 +5753,9 @@ out_uri_auth_compat:
  			listener->handler = process_session;
  			listener->analysers |= curproxy->fe_req_ana;
  
@@ -210,8 +222,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  			/* smart accept mode is automatic in HTTP mode */
  			if ((curproxy->options2 & PR_O2_SMARTACC) ||
  			    (curproxy->mode == PR_MODE_HTTP &&
---- a/src/client.c
-+++ b/src/client.c
+Index: haproxy-1.4.25/src/client.c
+===================================================================
+--- haproxy-1.4.25.orig/src/client.c
++++ haproxy-1.4.25/src/client.c
 @@ -22,6 +22,7 @@
  
  #include <common/compat.h>
@@ -412,9 +426,11 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  /* Retrieves the original destination address used by the client, and sets the
   * SN_FRT_ADDR_SET flag.
   */
---- a/src/proto_http.c
-+++ b/src/proto_http.c
-@@ -4156,7 +4156,8 @@ void http_end_txn_clean_session(struct s
+Index: haproxy-1.4.25/src/proto_http.c
+===================================================================
+--- haproxy-1.4.25.orig/src/proto_http.c
++++ haproxy-1.4.25/src/proto_http.c
+@@ -4209,7 +4209,8 @@ void http_end_txn_clean_session(struct s
  	if (s->rep->lr >= s->rep->data + s->rep->size)
  		s->rep->lr -= s->req->size;
  
@@ -424,7 +440,7 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  	s->rep->analysers = 0;
  
  	http_silent_debug(__LINE__, s);
-@@ -7741,7 +7742,6 @@ void http_reset_txn(struct session *s)
+@@ -7807,7 +7808,6 @@ void http_reset_txn(struct session *s)
  	http_init_txn(s);
  
  	s->be = s->fe;
@@ -432,8 +448,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  	s->logs.logwait = s->fe->to_log;
  	s->srv = s->prev_srv = s->srv_conn = NULL;
  	/* re-init store persistence */
---- a/src/session.c
-+++ b/src/session.c
+Index: haproxy-1.4.25/src/session.c
+===================================================================
+--- haproxy-1.4.25.orig/src/session.c
++++ haproxy-1.4.25/src/session.c
 @@ -34,6 +34,7 @@
  #include <proto/proxy.h>
  #include <proto/queue.h>
@@ -442,7 +460,7 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  #include <proto/stick_table.h>
  #include <proto/stream_interface.h>
  #include <proto/stream_sock.h>
-@@ -1071,6 +1072,12 @@ resync_stream_interface:
+@@ -1083,6 +1084,12 @@ resync_stream_interface:
  			while (ana_list && max_loops--) {
  				/* Warning! ensure that analysers are always placed in ascending order! */
  
@@ -455,8 +473,10 @@ Subject: [PATCH] Proxy Protocol based on haproxy 1.4.23
  				if (ana_list & AN_REQ_INSPECT) {
  					if (!tcp_inspect_request(s, s->req, AN_REQ_INSPECT))
  						break;
---- a/src/standard.c
-+++ b/src/standard.c
+Index: haproxy-1.4.25/src/standard.c
+===================================================================
+--- haproxy-1.4.25.orig/src/standard.c
++++ haproxy-1.4.25/src/standard.c
 @@ -569,6 +569,11 @@ unsigned int strl2uic(const char *s, int
  	return __strl2uic(s, len);
  }
