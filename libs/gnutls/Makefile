@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gnutls
-PKG_VERSION:=3.2.12
+PKG_VERSION:=3.2.13
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2
-PKG_MD5SUM:=f507365940de8f095e1d867c6f0842f6
+PKG_MD5SUM:=300e5f413054e2f4719c1c3b5179a611
 PKG_MAINTAINER:=Nikos Mavrogiannopoulos <nmav@gnutls.org>
 
 PKG_INSTALL:=1
@@ -106,6 +106,7 @@ CONFIGURE_ARGS+= \
 	--disable-rsa-export \
 	--disable-crywrap \
 	--without-p11-kit \
+	--disable-hardware-acceleration
 
 # XXX: AM_CFLAGS duplicates with CFLAGS
 MAKE_FLAGS:= \
