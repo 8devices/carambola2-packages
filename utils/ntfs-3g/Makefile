@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2010 OpenWrt.org
+# Copyright (C) 2007-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -10,32 +10,10 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ntfs-3g
 PKG_RELEASE:=1
 
-# 2011.4.12 integrates ntfsprogs and changed srcfile name
-PKG_VERSION:=2011.4.12
-# disable next line and do _not_ select ntfsprogs_ntfs-3g to build an older version
+PKG_VERSION:=2014.2.15
 PKG_SOURCE:=$(PKG_NAME)_ntfsprogs-$(PKG_VERSION).tgz
-
-## 2010.3.6 needs a recent uclibc 0.9.30.2 or greater
-## this has been fixed in 2010.5.16, keeping this in case this happens again
-#PKG_UCLIBC_VERSION:=$(call qstrip,$(CONFIG_UCLIBC_VERSION))
-#ifneq (,$(or $(findstring !0.9.29,!$(PKG_UCLIBC_VERSION)),$(findstring !0.9.30.1!,!$(PKG_UCLIBC_VERSION)!) ))
-#	PKG_VERSION:=2010.1.16
-#endif
-
-PATCH_DIR:=./patches-$(PKG_VERSION)
-
-PKG_SOURCE?=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://www.tuxera.com/opensource/
-
-PKG_MD5SUM_2010.1.16:=e104c914e8d7d29ee83e63d46afbba25
-PKG_MD5SUM_2010.3.6:=12ce21aa044c6068a4df6e8cbd3c5cfa
-PKG_MD5SUM_2010.5.16:=aeff7659a4943c9223d79116f051a863
-PKG_MD5SUM_2010.5.22:=caa08c73220a7106c76f697b7a7915ec
-PKG_MD5SUM_2010.8.8:=6c109746c2708f679725a2ea441c61c6
-PKG_MD5SUM_2010.10.2:=91405690f25822142cdcb43d03e62d3f
-PKG_MD5SUM_2011.1.15:=15a5cf5752012269fa168c24191f00e2
-PKG_MD5SUM_2011.4.12:=9c4ce318373b15332239a77a9d2a39fe
-PKG_MD5SUM:=$(PKG_MD5SUM_$(PKG_VERSION))
+PKG_MD5SUM:=f11d563816249d730a00498983485f3a
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
