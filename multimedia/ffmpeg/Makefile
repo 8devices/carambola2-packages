@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffmpeg
-PKG_VERSION:=0.11.2
-PKG_RELEASE:=2
+PKG_VERSION:=0.11.5
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://ffmpeg.org/releases/
-PKG_MD5SUM:=93c1908022567b321df74db7214da6ac
+PKG_MD5SUM:=ea25fc252c132141f12988ed5506bfe8
 
 PKG_LICENSE:=LGPLv2.1+ GPLv2+ LGPLv3
 PKG_LICENSE_FILES:=COPYING.GPLv2 COPYING.GPLv3 COPYING.LGPLv2.1 COPYING.LGPLv3
@@ -292,7 +292,6 @@ FFMPEG_CONFIGURE:= \
 	--disable-doc \
 	--disable-dxva2 \
 	--enable-pthreads \
-	--disable-optimizations \
 	--enable-small \
 	--disable-stripping \
 	--enable-zlib \
