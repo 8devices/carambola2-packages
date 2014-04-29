@@ -30,7 +30,6 @@ define Package/amule
 endef
 
 CONFIGURE_ARGS+= \
-	--enable-shared \
 	--disable-static \
 	--disable-rpath \
 	--with-gnu-ld \
@@ -41,21 +40,16 @@ CONFIGURE_ARGS+= \
 	--disable-monolithic \
 	--enable-amule-daemon \
 	--enable-amulecmd \
-	--disable-amulecmdgui \
 	--enable-webserver \
-	--disable-webservergui \
 	--disable-amule-gui \
 	--disable-cas \
 	--disable-wxcas \
 	--disable-ed2k \
 	--disable-alc \
 	--disable-alcc \
-	--disable-systray \
-	--disable-utf8-systray \
-	--enable-embedded-crypto \
-	--enable-gsocket \
-	--disable-gtktest \
-	--disable-crypto \
+	--disable-fileview \
+	--disable-plasmamule \
+	--without-wxdebug \
 	\
 	--with-zlib="$(STAGING_DIR)/usr" \
 	--with-gdlib-prefix="$(STAGING_DIR)/usr" \
