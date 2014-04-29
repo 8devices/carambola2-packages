@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libdbi-drivers
-PKG_VERSION:=0.8.3-1
-PKG_RELEASE:=2
+PKG_VERSION:=0.9.0
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/libdbi-drivers
-PKG_MD5SUM:=4de79b323162a5a7652b65b608eca6cd
+PKG_MD5SUM:=9f47b960e225eede2cdeaabf7d22f59f
 
 PKG_FIXUP:=autoreconf
 
@@ -33,7 +33,7 @@ endef
 
 define Package/libdbi-drivers-mysql
 $(call Package/libdbi-drivers/default)
-  DEPENDS:=libdbi +libmysqlclient
+  DEPENDS:=libdbi +PACKAGE_libdbi-drivers-mysql:libmysqlclient
   TITLE:= libdbi-drivers-mysql
 endef
 
@@ -43,7 +43,7 @@ endef
 
 define Package/libdbi-drivers-pgsql
 $(call Package/libdbi-drivers/default)
-  DEPENDS:=libdbi +libpq
+  DEPENDS:=libdbi +PACKAGE_libdbi-drivers-pgsql:libpq
   TITLE:= libdbi-drivers-pgsql
 endef
 
@@ -53,7 +53,7 @@ endef
 
 define Package/libdbi-drivers-sqlite2
 $(call Package/libdbi-drivers/default)
-  DEPENDS:=libdbi +libsqlite2
+  DEPENDS:=libdbi +PACKAGE_libdbi-drivers-sqlite2:libsqlite2
   TITLE:= libdbi-drivers-sqlite2
 endef
 
@@ -63,7 +63,7 @@ endef
 
 define Package/libdbi-drivers-sqlite3
 $(call Package/libdbi-drivers/default)
-  DEPENDS:=libdbi +libsqlite3
+  DEPENDS:=libdbi +PACKAGE_libdbi-drivers-sqlite3:libsqlite3
   TITLE:= libdbi-drivers-sqlite3
 endef
 
@@ -76,14 +76,14 @@ CONFIGURE_ARGS += \
 		  --disable-static \
 		  --disable-rpath \
 		  --disable-docs \
-		  --with-dbi-incdir=$(STAGING_DIR_HOST)/usr/include \
-		  --with-dbi-libdir=$(STAGING_DIR_HOST)/usr/lib
+		  --with-dbi-incdir=$(STAGING_DIR)/usr/include \
+		  --with-dbi-libdir=$(STAGING_DIR)/usr/lib
 
 ifneq ($(CONFIG_PACKAGE_libdbi-drivers-mysql),)
 CONFIGURE_ARGS += \
 		  --with-mysql \
-		  --with-mysql-incdir=$(STAGING_DIR_HOST)/usr/include \
-		  --with-mysql-libdir=$(STAGING_DIR_HOST)/usr/lib/mysql
+		  --with-mysql-incdir=$(STAGING_DIR)/usr/include/mysql \
+		  --with-mysql-libdir=$(STAGING_DIR)/usr/lib/mysql
 TARGET_LDFLAGS += \
 		  -L$(STAGING_DIR)/usr/lib/mysql/
 endif
@@ -91,22 +91,22 @@ endif
 ifneq ($(SDK)$(CONFIG_PACKAGE_libdbi-drivers-pgsql),)
 CONFIGURE_ARGS += \
 		  --with-pgsql \
-		  --with-pgsql-incdir=$(STAGING_DIR_HOST)/usr/include \
-		  --with-pgsql-libdir=$(STAGING_DIR_HOST)/usr/lib
+		  --with-pgsql-incdir=$(STAGING_DIR)/usr/include \
+		  --with-pgsql-libdir=$(STAGING_DIR)/usr/lib
 endif
 
 ifneq ($(SDK)$(CONFIG_PACKAGE_libdbi-drivers-sqlite2),)
 CONFIGURE_ARGS += \
 		  --with-sqlite \
-		  --with-sqlite-incdir=$(STAGING_DIR_HOST)/usr/include \
-		  --with-sqlite-libdir=$(STAGING_DIR_HOST)/usr/lib
+		  --with-sqlite-incdir=$(STAGING_DIR)/usr/include \
+		  --with-sqlite-libdir=$(STAGING_DIR)/usr/lib
 endif
 
 ifneq ($(SDK)$(CONFIG_PACKAGE_libdbi-drivers-sqlite3),)
 CONFIGURE_ARGS += \
 		  --with-sqlite3 \
-		  --with-sqlite3-incdir=$(STAGING_DIR_HOST)/usr/include \
-		  --with-sqlite3-libdir=$(STAGING_DIR_HOST)/usr/lib
+		  --with-sqlite3-incdir=$(STAGING_DIR)/usr/include \
+		  --with-sqlite3-libdir=$(STAGING_DIR)/usr/lib
 endif
 
 define Package/libdbi-drivers-mysql/install
