@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luaposix
 PKG_VERSION:=5.1.11
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://luaforge.net/frs/download.php/4813
-PKG_MD5SUM:=edb76911dbdabe98dec49e3d8a126227
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+PKG_SOURCE:=v$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/luaposix/luaposix/archive/
+PKG_MD5SUM:=8254576c52bd2d0e160353d24880bb89
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -23,7 +23,7 @@ define Package/luaposix
   SECTION:=lang
   CATEGORY:=Languages
   TITLE:=luaposix
-  URL:=http://luaposix.luaforge.net/
+  URL:=http://luaforge.net/projects/luaposix/
   DEPENDS:=+lua +librt
 endef
 
