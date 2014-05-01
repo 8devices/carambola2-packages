@@ -9,12 +9,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mxml
-PKG_VERSION:=2.6
+PKG_VERSION:=2.8
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://www.msweet.org/files/project3/$(PKG_VERSION)/
+PKG_SOURCE_URL:=http://www.msweet.org/files/project3/
 PKG_FIXUP:=autoreconf
+PKG_MD5SUM:=d85ee6d30de053581242c4a86e79a5d2
 
 include $(INCLUDE_DIR)/package.mk
 
