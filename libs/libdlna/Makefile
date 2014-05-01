@@ -28,7 +28,7 @@ define Package/libdlna
  CATEGORY:=Libraries
  TITLE:= Reference DLNA implementation
  URL:=http://libdlna.geexbox.org/
- DEPENDS:=+libffmpeg-mini
+ DEPENDS:=+libffmpeg
 endef
 
 define Package/libdlna/description
