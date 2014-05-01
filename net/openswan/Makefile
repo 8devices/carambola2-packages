@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=openswan
-PKG_VERSION:=2.6.38
-PKG_RELEASE:=2
+PKG_VERSION:=2.6.41
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.openswan.org/download
-PKG_MD5SUM:=13073eb5314b83a31be88e4117e8bbcd
+PKG_MD5SUM:=da2e8b02ecc30a408cc5766767fef84f
 
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
@@ -58,6 +58,7 @@ $(call Package/openswan/Default/description)
 endef
 
 TARGET_CPPFLAGS += -I$(LINUX_DIR)/$(LINUX_UAPI_DIR)include -D__EXPORTED_HEADERS__
+TARGET_CFLAGS += $(FPIC)
 
 OPENSWAN_MAKEFLAGS:= \
 	-C $(PKG_BUILD_DIR) \
