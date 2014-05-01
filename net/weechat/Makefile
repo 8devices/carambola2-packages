@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=weechat
-PKG_VERSION:=0.4.0
+PKG_VERSION:=0.4.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://www.weechat.org/files/src
-PKG_MD5SUM:=b2e10ca1e3a72142fcc8d58c7c774b1b
+PKG_MD5SUM:=07500f0d1054691d88f21dd12b7c5871
 
 PKG_FIXUP:=autoreconf
 
@@ -27,7 +27,7 @@ define Package/weechat
   CATEGORY:=Network
   TITLE:=Lightweight IRC client
   URL:=http://www.weechat.org/
-  DEPENDS:=+libcurl +libgnutls +libncursesw $(ICONV_DEPENDS)
+  DEPENDS:=+libcurl +libgnutls +libgcrypt +zlib +libncursesw $(ICONV_DEPENDS)
 endef
 
 define Package/weechat/description
