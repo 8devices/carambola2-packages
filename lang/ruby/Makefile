@@ -15,14 +15,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ruby
-PKG_VERSION:=1.9.3-p484
+PKG_VERSION:=1.9.3-p545
 PKG_RELEASE:=1
 
 PKG_LIBVER:=1.9
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=ftp://ftp.ruby-lang.org/pub/ruby/$(PKG_LIBVER)/
-PKG_MD5SUM:=03f5b08804927ceabe5122cb90f5d0a9
+PKG_MD5SUM:=4743c1dc48491070bae8fc8b423bc1a7
 
 PKG_BUILD_DEPENDS:=ruby/host
 PKG_INSTALL:=1
@@ -212,7 +212,6 @@ CONFIGURE_ARGS += \
 	--enable-static \
 	--disable-rpath \
 	--enable-ipv6 \
-	--enable-wide-getaddrinfo \
 	--with-ruby-version=minor \
 	--with-iconv-dir=$(ICONV_PREFIX) \
 
