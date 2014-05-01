@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 OpenWrt.org
+# Copyright (C) 2011-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pyload
-PKG_VERSION:=0.4.8
+PKG_VERSION:=0.4.9
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-src-v$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://download.pyload.org/
-PKG_MD5SUM:=5bcf8411ef9e48ef6e9ade55bc697900
+PKG_MD5SUM:=28876150af22999b6f539c8579d3b415
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/
 
