@@ -48,7 +48,7 @@ $(call Package/mpd/Default)
   TITLE+= (full)
   DEPENDS+= \
 	+AUDIO_SUPPORT:alsa-lib \
-	+libaudiofile +BUILD_PATENTED:libfaad2 +libffmpeg +libid3tag \
+	+libaudiofile +BUILD_PATENTED:libfaad2 +libffmpeg-mini +libid3tag \
 	+libmms +libogg +libshout +libsndfile +libvorbis
   PROVIDES:=mpd
   VARIANT:=full
