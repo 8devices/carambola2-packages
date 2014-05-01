@@ -24,7 +24,7 @@ PKG_UNPACK=unzip -d $(PKG_BUILD_DIR) $(DL_DIR)/$(PKG_SOURCE)
 define Package/pyload
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+python +pyopenssl +python-curl +python-crypto +python-django \
+  DEPENDS:=+python +pyopenssl +python-curl +python-crypto \
 	+python-expat +python-imaging-library +python-sqlite3 +js \
 	+tesseract +unrar
   TITLE:=A fast, lightweight and full featured download manager
