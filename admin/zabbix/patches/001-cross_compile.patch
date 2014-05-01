@@ -1,6 +1,6 @@
---- a/configure.in
-+++ b/configure.in
-@@ -804,25 +804,8 @@ dnl ************************************
+--- a/configure.ac
++++ b/configure.ac
+@@ -805,25 +805,8 @@ dnl ************************************
  
  dnl Check for %qu format (FreeBSD 4.x)
  dnl FreeBSD 4.x does not support %llu

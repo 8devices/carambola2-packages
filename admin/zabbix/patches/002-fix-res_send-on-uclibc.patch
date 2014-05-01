@@ -1,6 +1,6 @@
---- a/configure.in
-+++ b/configure.in
-@@ -151,6 +151,10 @@ if test "x$found_resolv" != "xyes"; then
+--- a/configure.ac
++++ b/configure.ac
+@@ -152,6 +152,10 @@ if test "x$found_resolv" != "xyes"; then
  	AC_MSG_ERROR([Unable to do DNS lookups (libresolv check failed)])
  fi
  LIBS="${LIBS} ${RESOLV_LIBS}"
@@ -13,15 +13,15 @@
  dnl *                                                               *
 --- a/src/libs/zbxsysinfo/common/net.c
 +++ b/src/libs/zbxsysinfo/common/net.c
-@@ -421,6 +421,7 @@ static int	dns_query(AGENT_REQUEST *requ
- #else	/* not _WINDOWS */
- 	res_init();	/* initialize always, settings might have changed */
+@@ -424,6 +424,7 @@ static int	dns_query(AGENT_REQUEST *requ
+ 	if (-1 == res_init())	/* initialize always, settings might have changed */
+ 		return SYSINFO_RET_FAIL;
  
 +#if defined(HAVE_RES_MKQUERY) && defined(HAVE_RES_SEND) 
  	if (-1 == (res = res_mkquery(QUERY, zone, C_IN, type, NULL, 0, NULL, buf, sizeof(buf))))
  		return SYSINFO_RET_FAIL;
  
-@@ -439,6 +440,11 @@ static int	dns_query(AGENT_REQUEST *requ
+@@ -448,6 +449,11 @@ static int	dns_query(AGENT_REQUEST *requ
  	_res.retry = retry;
  
  	res = res_send(buf, res, answer.buffer, sizeof(answer.buffer));
@@ -31,5 +31,5 @@
 +	return SYSINFO_RET_FAIL;
 +#endif 
  
- 	hp = (HEADER *)answer.buffer;
- 
+ 	_res.retrans = saved_retrans;
+ 	_res.retry = saved_retry;
