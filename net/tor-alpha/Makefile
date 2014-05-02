@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2008-2013 OpenWrt.org
+# Copyright (C) 2008-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tor-alpha
-PKG_VERSION:=0.2.5.2
+PKG_VERSION:=0.2.5.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=tor-$(PKG_VERSION)-alpha.tar.gz
 PKG_SOURCE_URL:=https://www.torproject.org/dist \
 	https://archive.torproject.org/tor-package-archive \
 	http://tor.mirror.tn/dist
-PKG_MD5SUM:=5bc071d506f723a626a7b2a6fec20ae0
+PKG_MD5SUM:=c913735a3527fec3e9bacf3a1e1a70bf
 
 PKG_BUILD_DEPENDS:=libminiupnpc libnatpmp
 PKG_BUILD_DIR:=$(BUILD_DIR)/tor-$(PKG_VERSION)-alpha
