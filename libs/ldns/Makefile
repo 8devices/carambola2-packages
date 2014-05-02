@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011-2012 OpenWrt.org
+# Copyright (C) 2011-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ldns
-PKG_VERSION:=1.6.16
+PKG_VERSION:=1.6.17
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.nlnetlabs.nl/downloads/ldns
-PKG_MD5SUM:=9ab2b402127cf24dffefaacbb727cad7
+PKG_MD5SUM:=a79423bcc4129e6d59b616b1cae11e5e
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
