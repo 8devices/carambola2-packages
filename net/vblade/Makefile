@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010 OpenWrt.org
+# Copyright (C) 2010-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vblade
-PKG_VERSION:=20
-PKG_RELEASE:=2
+PKG_VERSION:=21
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=@SF/aoetools/vblade
-PKG_MD5SUM:=3c80e4a6bc7d66ae0c235b88cb44bd59
+PKG_MD5SUM:=0a2a257737a808d8f2fbfa5de3172337
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -27,7 +27,6 @@ endef
 define Package/$(PKG_NAME)/conffiles
 /etc/config/vblade
 endef
-
 
 define Package/vblade/description
 	The vblade is the virtual EtherDrive (R) blade, a program that makes a
