@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012 OpenWrt.org
+# Copyright (C) 2012-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=usbmuxd
-PKG_VERSION:=1.0.7
+PKG_VERSION:=1.0.8
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=http://marcansoft.com/uploads/usbmuxd
-PKG_MD5SUM:=6f431541f3177fa06aa6df9ceecb2da0
+PKG_SOURCE_URL:=http://www.libimobiledevice.org/downloads
+PKG_MD5SUM:=4b33cc78e479e0f9a6745f9b9a8b60a8
 
 CMAKE_INSTALL:=1
 
@@ -22,7 +22,7 @@ include $(INCLUDE_DIR)/cmake.mk
 
 define Package/usbmuxd/Default
   TITLE:=USB multiplexing daemon
-  URL:=http://marcansoft.com/blog/iphonelinux/usbmuxd/
+  URL:=http://www.libimobiledevice.org/
 endef
 
 define Package/usbmuxd/Default/description
@@ -79,7 +79,7 @@ endef
 
 define Package/libusbmuxd/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib$(LIB_SUFFIX)/libusbmuxd.so* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib$(LIB_SUFFIX)/libusbmuxd.so.* $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,usbmuxd))
