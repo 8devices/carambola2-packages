@@ -1,11 +1,22 @@
-diff -urN bemused-mpd-r062/main.cpp bemused-mpd-r062.new/main.cpp
---- bemused-mpd-r062/main.cpp	2008-02-23 08:01:38.000000000 +0100
-+++ bemused-mpd-r062.new/main.cpp	2010-03-29 13:00:07.000000000 +0200
-@@ -16,6 +16,7 @@
+--- a/main.cpp
++++ b/main.cpp
+@@ -16,6 +16,9 @@
   ***************************************************************************/
  
  #include <stdlib.h>
 +#include <stdio.h>
++#include <getopt.h>
++#include <unistd.h>
  #include <iostream>
  
  #include "BemusedServerDlg.h"
+--- a/BemusedServerDlg.cpp
++++ b/BemusedServerDlg.cpp
+@@ -28,6 +28,7 @@
+ #include <cerrno>
+ #include <csignal>
+ 
++#include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <dirent.h>
