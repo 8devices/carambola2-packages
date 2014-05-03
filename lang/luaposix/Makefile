@@ -15,6 +15,8 @@ PKG_SOURCE:=release-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/luaposix/luaposix/archive/
 PKG_MD5SUM:=a25ff76d54bbbebf7a1f3b20c9806ee3
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-release-$(PKG_VERSION)
+PKG_REMOVE_FILES:=aclocal.m4
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -31,11 +33,6 @@ endef
 define Package/luaposix/description
   luaposix is a general POSIX library for Lua providing access
   to various low level libc functions.
-endef
-
-define Build/Configure
-	cd $(PKG_BUILD_DIR) && ./bootstrap
-	$(call Build/Configure/Default)
 endef
 
 TARGET_CFLAGS += -DLUA_USE_LINUX $(FPIC) -std=gnu99
