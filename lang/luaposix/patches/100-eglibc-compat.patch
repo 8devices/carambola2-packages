@@ -1,26 +1,28 @@
---- a/lposix.c
-+++ b/lposix.c
-@@ -960,11 +960,13 @@ static int Pctermid(lua_State *L)		/** c
+--- a/ext/posix/posix.c
++++ b/ext/posix/posix.c
+@@ -1970,6 +1970,7 @@ static int Pctermid(lua_State *L)
+ 	return 1;
  }
  
- 
 +#ifndef NO_GETLOGIN
- static int Pgetlogin(lua_State *L)		/** getlogin() */
- {
+ /***
+ Current logged-in user.
+ @see getlogin(3)
+@@ -1980,6 +1981,7 @@ static int Pgetlogin(lua_State *L)
  	lua_pushstring(L, getlogin());
  	return 1;
  }
 +#endif
  
- 
  static void Fgetpasswd(lua_State *L, int i, const void *data)
-@@ -1778,7 +1780,9 @@ static const luaL_reg R[] =
+ {
+@@ -3786,7 +3788,9 @@ static const luaL_Reg R[] =
  #if _POSIX_VERSION >= 200112L
- 	{"getgroups",		Pgetgroups},
+ 	MENTRY( Pgetgroups	),
  #endif
 +#ifndef NO_GETLOGIN
- 	{"getlogin",		Pgetlogin},
+ 	MENTRY( Pgetlogin	),
 +#endif
- 	{"getopt_long",		Pgetopt_long},
- 	{"getpasswd",		Pgetpasswd},
- 	{"getpid",		Pgetpid},
+ 	MENTRY( Pgetopt		),
+ 	MENTRY( Pgetpasswd	),
+ 	MENTRY( Pgetpid		),
