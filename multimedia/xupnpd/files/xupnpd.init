@@ -1,23 +1,15 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2013 OpenWrt.org
+# Copyright (C) 2013-2014 OpenWrt.org
 
-START=99
-STOP=99
+START=50
+USE_PROCD=1
 
-SERVICE_DAEMONIZE=1
-SERVICE_WRITE_PID=1
+start_service() {
+	procd_open_instance
 
-XUPNPDROOTDIR=/usr/share/xupnpd
-XUPNPD=/usr/bin/xupnpd
+	procd_set_param command /usr/bin/xupnpd
+	procd_append_param command -d /usr/share/xupnpd
 
-start() {
-        service_start $XUPNPD
-}
-
-stop() {
-        service_stop $XUPNPD
-}
-
-reload() {
-        service_reload $XUPNPD
+	procd_set_param respawn
+	procd_close_instance
 }
