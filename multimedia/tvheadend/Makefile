@@ -72,7 +72,6 @@ define Package/tvheadend/install
 	$(INSTALL_BIN) ./files/tvheadend.init $(1)/etc/init.d/tvheadend
 	$(INSTALL_DIR) $(1)/lib/upgrade/keep.d
 	$(INSTALL_DATA) ./files/tvheadend.upgrade $(1)/lib/upgrade/keep.d/tvheadend
-	
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build.linux/tvheadend $(1)/usr/bin/
 endef
