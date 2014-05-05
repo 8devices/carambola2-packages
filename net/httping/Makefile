@@ -26,6 +26,7 @@ define Package/httping/Default
   CATEGORY:=Network
   TITLE:=Httping is like 'ping' but for http-requests
   URL:=http://www.vanheusden.com/httping/
+  DEPENDS:=$(INTL_DEPENDS)
 endef
 
 define Package/httping/Default/description
@@ -60,12 +61,14 @@ endef
 define Build/Configure
 endef
 
+TARGET_LDFLAGS += $(INTL_LDFLAGS) $(if $(INTL_FULL),-lintl)
+
 MAKE_FLAGS += \
 	DEBUG="no" \
 	FW="no" \
 	NC="no" \
 	TFO="no"
-	
+
 ifeq ($(BUILD_VARIANT),nossl)
 	MAKE_FLAGS += SSL="no"
 endif
