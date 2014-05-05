@@ -12,6 +12,7 @@ PKG_MD5SUM:=7a7b24165ce008df772f398d86fa280e
 PKG_CAT:=bzcat
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/tayga-$(PKG_VERSION)
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
