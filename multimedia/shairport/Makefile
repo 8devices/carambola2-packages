@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shairport
-PKG_VERSION:=2012-10-20
+PKG_VERSION:=2013-10-26
 PKG_RELEASE:=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/albertz/shairport.git
+PKG_SOURCE_URL:=git://github.com/abrasive/shairport.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=4746bb11395d171ee800f074f489c42020a84932
+PKG_SOURCE_VERSION:=b2c7bf111c1446739af9411d8a35acd9b6581b06
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 include $(INCLUDE_DIR)/package.mk
@@ -22,7 +22,8 @@ include $(INCLUDE_DIR)/package.mk
 define Package/shairport
   SECTION:=multimedia
   CATEGORY:=Multimedia
-  DEPENDS:=+libpthread +avahi-utils +libopenssl +libao
+  DEPENDS:=+libpthread +avahi-utils +libopenssl +libao +libavahi-client \
+	+alsa-utils
   TITLE:=ShairPort AirPort Express emulator
 endef
 
@@ -38,7 +39,7 @@ endef
 
 TARGET_CFLAGS += $(FPIC)
 
-LIBS:=-lao -lm -lcrypto -lpthread
+LIBS:=-lao -lm -lcrypto -lpthread -lavahi-common -lavahi-client -lasound
 
 MAKE_FLAGS += \
 	CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)" \

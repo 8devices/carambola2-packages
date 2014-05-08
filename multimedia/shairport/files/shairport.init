@@ -8,15 +8,13 @@ config_shairport() {
 	local args=""
 
 	config_get name "$cfg" name
-	config_get password "$cfg" password
 	config_get port "$cfg" port
 	config_get buffer "$cfg" buffer
 
 	[ -z $name ] && name="AirPort"
 	args="$args -a $name"
 
-	[ ! -z "$password" ] && args="$args -p $password"
-	[ ! -z "$port" ] && args="$args -o $port"
+	[ ! -z "$port" ] && args="$args -p $port"
 
 	[ -z $buffer ] && buffer="256"
 	args="$args -b $buffer"
