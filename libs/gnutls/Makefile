@@ -75,7 +75,7 @@ endef
 define Package/libgnutls
 $(call Package/gnutls/Default)
   TITLE+= (library)
-  DEPENDS+= +libnettle
+  DEPENDS+= +libnettle +!LIBNETTLE_MINI:libgmp
 endef
 
 define Package/libgnutls/description
@@ -109,6 +109,10 @@ CONFIGURE_ARGS+= \
 	--disable-rsa-export \
 	--disable-crywrap \
 	--without-p11-kit
+
+ifeq ($(CONFIG_LIBNETTLE_MINI),y)
+CONFIGURE_ARGS += --with-nettle-mini
+endif
 
 ifneq ($(CONFIG_GNUTLS_DTLS_SRTP),y)
 CONFIGURE_ARGS += --disable-dtls-srtp-support
