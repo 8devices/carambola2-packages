@@ -19,8 +19,8 @@ PKG_MAINTAINER:=Nikos Mavrogiannopoulos <nmav@gnutls.org>
 PKG_LICENSE:=LGPLv2
 PKG_LICENSE_FILES:=COPYING
 
-PKG_FIXUP:=
-PKG_BUILD_PARALLEL:=1
+PKG_FIXUP:=autoreconf
+PKG_BUILD_PARALLEL:=0
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -29,7 +29,11 @@ define Package/libnettle
   CATEGORY:=Libraries
   TITLE:=GNU crypto library
   URL:=http://www.lysator.liu.se/~nisse/nettle/
-  DEPENDS+= +libgmp
+  DEPENDS+= +!LIBNETTLE_MINI:libgmp
+endef
+
+define Package/libnettle/config
+	source "$(SOURCE)/Config.in"
 endef
 
 TARGET_CFLAGS += $(FPIC)
@@ -40,6 +44,10 @@ CONFIGURE_ARGS += \
 	--disable-documentation \
 	--enable-static
 
+ifeq ($(CONFIG_LIBNETTLE_MINI),y)
+CONFIGURE_ARGS += --enable-mini-gmp
+endif
+
 ifeq ($(CONFIG_CPU_SUBTYPE),neon)
 CONFIGURE_ARGS += \
 	--enable-arm-neon
@@ -49,8 +57,10 @@ define Build/Compile
 	$(call Build/Compile/Default, \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
 		CC="$(TARGET_CC)" \
-		all install \
-	)
+		libnettle.so libhogweed.so
+	+$(MAKE) -i $(PKG_JOBS) -C $(PKG_BUILD_DIR) \
+		DESTDIR="$(PKG_INSTALL_DIR)" \
+		install)
 endef
 
 define Build/InstallDev
