@@ -8,18 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gnutls
-PKG_VERSION:=3.2.13
+PKG_VERSION:=3.2.14
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2
-PKG_MD5SUM:=300e5f413054e2f4719c1c3b5179a611
+PKG_MD5SUM:=807bbf14a5b6c81a9249fffab5c3982b
 PKG_MAINTAINER:=Nikos Mavrogiannopoulos <nmav@gnutls.org>
 
 PKG_INSTALL:=1
 PKG_LIBTOOL_PATHS:=. lib
 
 include $(INCLUDE_DIR)/package.mk
+
 
 define Package/gnutls/Default
   SUBMENU:=SSL
@@ -67,6 +68,9 @@ $(call Package/gnutls/Default/description)
  and srptool utilities.
 endef
 
+define Package/libgnutls/config
+	source "$(SOURCE)/Config.in"
+endef
 
 define Package/libgnutls
 $(call Package/gnutls/Default)
@@ -94,7 +98,6 @@ endef
 CONFIGURE_ARGS+= \
 	--enable-shared \
 	--enable-static \
-	--disable-openpgp-authentication \
 	--disable-libdane \
 	--disable-guile \
 	--disable-nls \
@@ -105,8 +108,43 @@ CONFIGURE_ARGS+= \
 	--disable-tests \
 	--disable-rsa-export \
 	--disable-crywrap \
-	--without-p11-kit \
-	--disable-hardware-acceleration
+	--without-p11-kit
+
+ifneq ($(CONFIG_GNUTLS_DTLS_SRTP),y)
+CONFIGURE_ARGS += --disable-dtls-srtp-support
+endif
+
+ifneq ($(CONFIG_GNUTLS_ALPN),y)
+CONFIGURE_ARGS += --disable-alpn-support
+endif
+
+ifneq ($(CONFIG_GNUTLS_HEARTBEAT),y)
+CONFIGURE_ARGS += --disable-heartbeat-support
+endif
+
+ifneq ($(CONFIG_GNUTLS_SRP),y)
+CONFIGURE_ARGS += --disable-srp-authentication
+endif
+
+ifneq ($(CONFIG_GNUTLS_PSK),y)
+CONFIGURE_ARGS += --disable-psk-authentication
+endif
+
+ifneq ($(CONFIG_GNUTLS_OPENPGP),y)
+CONFIGURE_ARGS += --disable-openpgp-authentication
+endif
+
+ifneq ($(CONFIG_GNUTLS_ANON),y)
+CONFIGURE_ARGS += --disable-anon-authentication
+endif
+
+ifneq ($(CONFIG_GNUTLS_OCSP),y)
+CONFIGURE_ARGS += --disable-ocsp
+endif
+
+ifeq ($(CONFIG_GNUTLS_CRYPTODEV),y)
+CONFIGURE_ARGS += --enable-cryptodev
+endif
 
 # XXX: AM_CFLAGS duplicates with CFLAGS
 MAKE_FLAGS:= \
@@ -150,10 +188,22 @@ define Package/gnutls-utils/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/gnutls-{cli,serv} \
-		$(PKG_INSTALL_DIR)/usr/bin/psktool \
+		$(1)/usr/bin/
+ifeq ($(CONFIG_GNUTLS_OCSP),y)
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/ocsptool \
+		$(1)/usr/bin/
+endif
+ifeq ($(CONFIG_GNUTLS_SRP),y)
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/srptool \
 		$(1)/usr/bin/
+endif
+ifeq ($(CONFIG_GNUTLS_PSK),y)
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/bin/psktool \
+		$(1)/usr/bin/
+endif
 endef
 
 
