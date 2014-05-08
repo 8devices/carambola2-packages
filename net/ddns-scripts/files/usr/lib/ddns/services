@@ -60,3 +60,6 @@
 
 # Winco DDNS
 "ddns.com.br"	"http://[DOMAIN]:[PASSWORD]@members.ddns.com.br/nic/update?hostname=[DOMAIN]&myip=[IP]"
+
+# Mythic Beasts (https://www.mythic-beasts.com) Dynamic DNS
+"mythic-beasts.com"	"http://dnsapi4.mythic-beasts.com/?domain=[USERNAME]&password=[PASSWORD]&command=REPLACE%20[DOMAIN]%2060%20A%20DYNAMIC_IP"
