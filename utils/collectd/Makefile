@@ -20,6 +20,7 @@ PKG_REMOVE_FILES:=aclocal.m4 libltdl/aclocal.m4
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
+PKG_USE_MIPS16:=0
 
 COLLECTD_PLUGINS_DISABLED:= \
 	apple_sensors \
