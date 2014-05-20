@@ -190,10 +190,12 @@ endef
 
 define Package/gnutls-utils/install
 	$(INSTALL_DIR) $(1)/usr/bin
+ifeq ($(CONFIG_GNUTLS_OCSP),y)
+ifeq ($(CONFIG_GNUTLS_ANON),y)
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/gnutls-{cli,serv} \
 		$(1)/usr/bin/
-ifeq ($(CONFIG_GNUTLS_OCSP),y)
+endif
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/bin/ocsptool \
 		$(1)/usr/bin/
