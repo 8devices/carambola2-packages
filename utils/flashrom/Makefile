@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2011 OpenWrt.org
+# Copyright (C) 2010-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=flashrom
-PKG_VERSION:=0.9.4
-PKG_RELEASE:=2
+PKG_VERSION:=0.9.7
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://download.flashrom.org/releases
-PKG_MD5SUM:=d739a91aece12cc1e622038bb199541c
+PKG_MD5SUM:=d239bafa1b46619d851f70f84a5b122a
 
 PKG_INSTALL:=1
 
@@ -24,12 +24,11 @@ define Package/flashrom
   CATEGORY:=Utilities
   TITLE:=FlashROM Utility
   URL:=http://www.flashrom.org/
-# XXX: needs <sys/io.h>, only available on these arch right now
-  DEPENDS:=+zlib +pciutils +dmidecode +libftdi +libusb-compat @(arm||armeb||i386||i686||x86_64)
+  DEPENDS:=+zlib +pciutils +(TARGET_x86||TARGET_x86_64):dmidecode +libftdi
 endef
 
 define Package/flashrom/description
- flashrom is a utility for identifying, reading, writing, verifying
+ flashrom is an utility for identifying, reading, writing, verifying
  and erasing flash chips. It's often used to flash BIOS/EFI/coreboot
  /firmware images.
 endef
