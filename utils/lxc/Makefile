@@ -8,14 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lxc
-PKG_VERSION:=2014-01-25
-PKG_RELEASE=$(PKG_SOURCE_VERSION)
+PKG_VERSION:=1.0.3
+PKG_RELEASE:=1
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/lxc/lxc.git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=0b3a6504e51795e738de8e017c22d209a93bc169
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://linuxcontainers.org/downloads/
+PKG_MD5SUM:=55873b1411a606397309aa6c4c4263b3
 
 PKG_BUILD_DEPENDS:=lua
 PKG_BUILD_PARALLEL:=1
@@ -28,7 +26,7 @@ LXC_APPLETS_BIN += \
 	freeze info monitor snapshot start stop unfreeze unshare usernsexec wait
 
 LXC_APPLETS_LIB += \
-	init monitord user-nic
+	monitord user-nic
 
 LXC_SCRIPTS += \
 	checkconfig ls top
@@ -86,6 +84,12 @@ define Package/lxc-lua
   $(call Package/lxc/Default)
   TITLE:=LXC Lua bindings
   DEPENDS:= lxc +liblua +liblxc +luafilesystem
+endef
+
+define Package/lxc-init
+  $(call Package/lxc/Default)
+  TITLE:=LXC Lua bindings
+  DEPENDS:= lxc +liblxc
 endef
 
 CONFIGURE_ARGS += \
@@ -177,12 +181,19 @@ endef
 define Package/lxc-lua/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua
 	$(CP) \
-		$(PKG_INSTALL_DIR)/usr/lib/lua/lxc.lua \
+		$(PKG_INSTALL_DIR)/usr/share/lua/5.1/lxc.lua \
 		$(1)/usr/lib/lua/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/lxc
 	$(CP) \
-		$(PKG_INSTALL_DIR)/usr/lib/lua/lxc/core.so \
+		$(PKG_INSTALL_DIR)/usr/lib/lua/5.1/lxc/core.so \
 		$(1)/usr/lib/lua/lxc/
+endef
+
+define Package/lxc-init/install
+	$(INSTALL_DIR) $(1)/sbin
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/sbin/init.lxc \
+		$(1)/sbin/
 endef
 
 define GenPlugin
