@@ -1,6 +1,6 @@
 --- a/usr/share/debootstrap/functions
 +++ b/usr/share/debootstrap/functions
-@@ -840,8 +840,6 @@ choose_extractor () {
+@@ -859,8 +859,6 @@ choose_extractor () {
  
  	if [ -n "$EXTRACTOR_OVERRIDE" ]; then
  		extractor="$EXTRACTOR_OVERRIDE"
