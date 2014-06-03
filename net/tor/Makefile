@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tor
-PKG_VERSION:=0.2.4.21
+PKG_VERSION:=0.2.4.22
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://www.torproject.org/dist \
 	https://archive.torproject.org/tor-package-archive
-PKG_MD5SUM:=bde981d10e8faf1e171ef1ebbb7b398a
+PKG_MD5SUM:=5a7eee0d9df87233255d78b25c6f8270
 
 PKG_BUILD_DEPENDS:=libminiupnpc libnatpmp
 PKG_INSTALL:=1
