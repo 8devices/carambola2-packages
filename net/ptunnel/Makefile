@@ -29,9 +29,9 @@ define Package/ptunnel
 endef
 
 define Package/ptunnel/description
-  ptunnel is an application that allows you to reliably tunnel TCP connections to 
-  a remote host using ICMP echo request and reply packets, commonly known as ping 
-  requests and replies. It acts as a proxy and can handle sockets and secured 
+  ptunnel is an application that allows you to reliably tunnel TCP connections to
+  a remote host using ICMP echo request and reply packets, commonly known as ping
+  requests and replies. It acts as a proxy and can handle sockets and secured
   identification.
 endef
 

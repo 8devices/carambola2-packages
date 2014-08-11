@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -37,7 +37,7 @@ define Package/glib1
 endef
 
 define Package/glib1/description
- GLib is a library containing many useful C routines for things such 
+ GLib is a library containing many useful C routines for things such
  as trees, hashes, and lists.
 endef
 

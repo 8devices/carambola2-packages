@@ -1,5 +1,5 @@
-# 
-# Copyright (C) 2011 segal.ubi.pt 
+#
+# Copyright (C) 2011 segal.ubi.pt
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -15,6 +15,8 @@ PKG_SOURCE:=$(PKG_NAME)$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://igs.bkg.bund.de/root_ftp/NTRIP/software/
 PKG_MD5SUM:=8c85a6c31d8c5cdf2638fe103207a1fd
 
+PKG_MAINTAINER:=Nuno Goncalves <nunojpg@gmail.com>
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/ntripcaster
@@ -23,7 +25,6 @@ define Package/ntripcaster
   SUBMENU:=NTRIP
   TITLE:=Standard Ntrip Broadcaster
   URL:=http://igs.bkg.bund.de/ntrip/download
-  MAINTAINER:=Nuno Goncalves <nunojpg@gmail.com>
   DEPENDS:=+libpthread
 endef
 
@@ -35,7 +36,7 @@ define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	unzip $(DL_DIR)/$(PKG_SOURCE) -d $(PKG_BUILD_DIR)
 	mv $(PKG_BUILD_DIR)/$(PKG_NAME)$(PKG_VERSION)/* $(PKG_BUILD_DIR)
-	chmod +x $(PKG_BUILD_DIR)/configure 
+	chmod +x $(PKG_BUILD_DIR)/configure
 endef
 
 define Package/ntripcaster/install

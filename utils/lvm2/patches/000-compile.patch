@@ -1,11 +1,11 @@
 --- a/make.tmpl.in
 +++ b/make.tmpl.in
-@@ -17,7 +17,7 @@ SHELL = /bin/sh
+@@ -19,7 +19,7 @@
  
- @SET_MAKE@
- 
+ # Allow environment to override any built-in default value for CC.
+ # If there is a built-in default, CC is NOT set to @CC@ here.
 -CC ?= @CC@
 +CC = @CC@
- RANLIB = @RANLIB@
- INSTALL = @INSTALL@
- MKDIR_P = @MKDIR_P@
+ 
+ # If $(CC) holds the usual built-in default value of 'cc' then replace it with
+ # the configured value.

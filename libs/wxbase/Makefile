@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007-2009 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wxbase
-PKG_VERSION:=2.8.10
+PKG_VERSION:=2.8.12
 PKG_RELEASE:=1
 
 PKG_SOURCE:=wxGTK-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/wxwindows
-PKG_MD5SUM:=88b867bc118a183af56efc67014bdf27
+PKG_MD5SUM:=08f81ab60647308058f6ce99712b14f8
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/wxGTK-$(PKG_VERSION)
 
@@ -31,9 +31,9 @@ endef
 
 define Package/libwxbase/description
  wxBase contains most of the non-GUI classes from the wxWindows cross-
- -platform C++ framework. There are 2 categories: generally useful portable 
- code (date/time handling, command line parsing, regular expression support) 
- and wrappers for the OS objects (files, directories, sockets, threads, 
+ -platform C++ framework. There are 2 categories: generally useful portable
+ code (date/time handling, command line parsing, regular expression support)
+ and wrappers for the OS objects (files, directories, sockets, threads,
  etc.) allowing you to write portable programs easily.
 endef
 

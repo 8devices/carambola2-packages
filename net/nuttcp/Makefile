@@ -54,7 +54,7 @@ define Package/nuttcp-xinetd/description
   $(call Package/nuttcp/Default/description)
   This package contains the nuttcp xinetd service files.
 endef
-  
+
 MAKE_FLAGS += \
 	APP="nuttcp" \
 	OPT="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS) -Wall"

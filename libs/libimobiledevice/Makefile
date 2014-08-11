@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012 OpenWrt.org
+# Copyright (C) 2012-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,15 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libimobiledevice
-PKG_REV:=c182599c8c18ed729726ea7cbbd0a3b89790d2db
-PKG_VERSION:=20120112
-PKG_RELEASE:=2
+PKG_VERSION:=1.1.6
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=git://git.sukimashita.com/libimobiledevice.git
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE_URL:=http://www.libimobiledevice.org/downloads
+PKG_MD5SUM:=274783651e9b772774cd9fed2fc52e08
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -39,7 +36,7 @@ define Package/libimobiledevice
   $(call Package/libimobiledevice/Default)
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+glib2 +libgcrypt +libgnutls $(ICONV_DEPENDS) +libplist +libtasn1 +libusbmuxd
+  DEPENDS:=+libgcrypt +libgnutls $(ICONV_DEPENDS) +libplist +libtasn1 +libusbmuxd
 endef
 
 define Package/libimobiledevice/description
@@ -60,11 +57,14 @@ endef
 
 CONFIGURE_VARS += \
 	libusbmuxd_CFLAGS="-I$(STAGING_DIR)/usr/include" \
-	libusbmuxd_LIBS="-L$(STAGING_DIR)/usr/lib -lusbmuxd"
+	libusbmuxd_LIBS="-L$(STAGING_DIR)/usr/lib -lusbmuxd" \
+	openssl_CFLAGS=" " \
+	openssl_LIBS=" "
 
 CONFIGURE_ARGS += \
-	--without-swig \
-	--disable-largefile
+	--without-cython \
+	--disable-largefile \
+	--disable-openssl
 
 TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 

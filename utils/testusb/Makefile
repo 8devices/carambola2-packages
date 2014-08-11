@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2007 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -24,7 +24,7 @@ define Package/testusb
 endef
 
 define Package/testusb/description
-	This tool can be used to perform various tests with use of the usbtest driver. 
+	This tool can be used to perform various tests with use of the usbtest driver.
 endef
 
 define Build/Prepare

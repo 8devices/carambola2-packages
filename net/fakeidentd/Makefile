@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2012 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -33,7 +33,7 @@ define Build/Compile
 	$(SHELL) "$(PKG_BUILD_DIR)/$(MAKE_PATH)/$(PKG_SOURCE)" \
 	CC="$(TARGET_CC)" TRG="$(PKG_BUILD_DIR)/$(MAKE_PATH)/$(PKG_NAME)" \
 	$(TARGET_CFLAGS) $(EXTRA_CFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS) \
-	$(TARGET_LDFLAGS) $(EXTRA_LDFLAGS) -DUSE_UNIX_OS 
+	$(TARGET_LDFLAGS) $(EXTRA_LDFLAGS) -DUSE_UNIX_OS
 endef
 
 define Package/fakeidentd/install

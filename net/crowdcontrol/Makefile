@@ -26,8 +26,8 @@ define Package/crowdcontrol
 endef
 
 define Package/crowdcontrol/description
-	Crowd Control is an small, cross-platform HTTP proxy (a fork of the elhttp project) 
-	designed for systems with little RAM, such as a home router. It can filter URLs using 
+	Crowd Control is an small, cross-platform HTTP proxy (a fork of the elhttp project)
+	designed for systems with little RAM, such as a home router. It can filter URLs using
 	SquidGuard blocklists, and has the unique ability to filter HTTPS domains as well.
 endef
 

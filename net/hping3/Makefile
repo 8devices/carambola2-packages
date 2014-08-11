@@ -29,11 +29,11 @@ define Package/hping3/description
         hping is a command-line oriented TCP/IP packet assembler/analyzer. The interface is
         inspired to the ping(8) unix command, but hping isn't only able to send ICMP echo
         requests. It supports TCP, UDP, ICMP and RAW-IP protocols, has a traceroute mode, the
-        ability to send files between a covered channel, and many other features. 
+        ability to send files between a covered channel, and many other features.
 endef
 
 define Build/Configure
-endef 
+endef
 
 define Package/hping3/install
 	$(INSTALL_DIR) $(1)/usr/sbin

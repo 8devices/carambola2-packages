@@ -4,7 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
- 
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=boxbackup
@@ -40,7 +40,7 @@ define Package/bbstored
 endef
 
 define Package/bbstored/description
-  Boxbackup is an open source, completely automatic, on-line backup system. 
+  Boxbackup is an open source, completely automatic, on-line backup system.
   This package is for the server (where the backups are stored).  The
   server is known as bbstored.
 endef
@@ -69,7 +69,7 @@ define Package/bbackupd
 endef
 
 define Package/bbackupd/description
-  Box Backup is an open source, completely automatic, on-line backup system. 
+  Box Backup is an open source, completely automatic, on-line backup system.
   This package is for the client (host to be backed up).
 endef
 
@@ -88,7 +88,7 @@ CONFIGURE_ARGS += \
 
 define Build/Install
 	mkdir -p $(PKG_INSTALL_DIR)
-	tar -C $(PKG_INSTALL_DIR) -xzf $(PKG_BUILD_DIR)/parcels/$(PKG_NAME)-$(PKG_VERSION)-backup-server-linux-gnu.tgz 
+	tar -C $(PKG_INSTALL_DIR) -xzf $(PKG_BUILD_DIR)/parcels/$(PKG_NAME)-$(PKG_VERSION)-backup-server-linux-gnu.tgz
 	tar -C $(PKG_INSTALL_DIR) -xzf $(PKG_BUILD_DIR)/parcels/$(PKG_NAME)-$(PKG_VERSION)-backup-client-linux-gnu.tgz
 endef
 
@@ -102,7 +102,7 @@ endef
 define Package/bbstored/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(BXBK_SRV_INSTALL_DIR)/bbstored $(1)/usr/sbin/
-	$(INSTALL_DIR) $(1)/usr/lib/boxbackup	
+	$(INSTALL_DIR) $(1)/usr/lib/boxbackup
 	$(INSTALL_BIN) $(BXBK_SRV_INSTALL_DIR)/bbstoreaccounts $(1)/usr/lib/boxbackup/
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/bbstored.init $(1)/etc/init.d/bbstored

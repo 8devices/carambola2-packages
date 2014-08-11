@@ -31,7 +31,7 @@ define Package/python-egenix-mx
 endef
 
 define Package/python-egenix-mx/description
- This package contains a set of base packages from Egenix required by other 
+ This package contains a set of base packages from Egenix required by other
  python packages.
 endef
 

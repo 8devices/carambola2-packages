@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012 OpenWrt.org
+# Copyright (C) 2012-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,17 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libplist
-PKG_VERSION:=1.8
+PKG_VERSION:=1.11
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://www.libimobiledevice.org/downloads
-PKG_MD5SUM:=2a9e0258847d50f9760dc3ece25f4dc6
+PKG_MD5SUM:=82de65f38cb2f0a9fd0839679b46072b
 
-CMAKE_INSTALL:=1
+PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
-include $(INCLUDE_DIR)/cmake.mk
 
 define Package/libplist/Default
   TITLE:=Apple property list
@@ -67,6 +66,9 @@ define Package/libplist-utils/description
   This package contains the libplist utilities.
 endef
 
+CONFIGURE_ARGS += \
+	--without-cython
+
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/plist $(1)/usr/include/
@@ -88,7 +90,7 @@ endef
 
 define Package/libplist-utils/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_INSTALL_DIR)/usr/bin/plutil* $(1)/usr/bin/
+	$(CP) $(PKG_INSTALL_DIR)/usr/bin/plistutil $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,libplist))

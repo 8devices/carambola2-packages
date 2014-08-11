@@ -33,9 +33,9 @@ define Package/libfreetype
 endef
 
 define Package/libfreetype/description
- The FreeType project is a team of volunteers who develop free, 
+ The FreeType project is a team of volunteers who develop free,
  portable and high-quality software solutions for digital typography.
- They specifically target embedded systems and focus on bringing small, 
+ They specifically target embedded systems and focus on bringing small,
  efficient and ubiquitous products.
 endef
 

@@ -35,7 +35,7 @@ endef
 
 define Package/openl2tp/description/Default
  OpenL2TP is an open source L2TP client/server, written by Katalix Systems
- specifically for Linux. It has been designed for use as an enterprise 
+ specifically for Linux. It has been designed for use as an enterprise
  L2TP VPN server or in commercial, Linux-based, embedded networking
  products and is able to support hundreds of sessions, each with different
  configuration.

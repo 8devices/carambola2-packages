@@ -8,12 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mii-tool
-PKG_VERSION:=1.9.1.1
+PKG_VERSION:=2014-02-18
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=http://downloads.openwrt.org/sources
-PKG_MD5SUM:=f65dbeb1c2392acffd4c94138b1f2e52
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=git://git.code.sf.net/p/net-tools/code
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=68a4d784daaf5fb3449808e434e8cbb9625988e6
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -31,7 +33,15 @@ define Package/mii-tool/description
 	optimized for embedded systems and fully automated cross/-sysroot-builds
 endef
 
-MAKE_FLAGS += CFLAGS="$(TARGET_CFLAGS) -D_GNU_SOURCE -I. -idirafter ./include/"
+define Build/Configure
+	# Failed configure.sh leaves stub config.h around.
+	rm -f $(PKG_BUILD_DIR)/config.h
+	(cd $(PKG_BUILD_DIR) && yes $$$$'\n' | ./configure.sh config.in )
+endef
+
+define Build/Compile
+	$(call Build/Compile/Default,mii-tool)
+endef
 
 define Package/mii-tool/install
 	$(INSTALL_DIR) $(1)/usr/sbin

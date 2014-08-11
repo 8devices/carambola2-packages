@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -17,6 +17,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
+
+PKG_USE_MIPS16:=0
 
 FFMPEG_ENCODERS:= \
 	ac3 \

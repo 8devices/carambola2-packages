@@ -24,8 +24,8 @@ define Package/radiusclient-ng/Default
 endef
 
 define Package/radiusclient-ng/Default/description
- Purpose of this project is to build a portable, easy-to-use and 
- standard compliant library suitable for developing free and commercial 
+ Purpose of this project is to build a portable, easy-to-use and
+ standard compliant library suitable for developing free and commercial
  software that need support for RADIUS protocol (RFCs 2128 and 2139).
 endef
 

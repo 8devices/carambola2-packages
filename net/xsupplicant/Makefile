@@ -31,7 +31,7 @@ define Package/xsupplicant
 endef
 
 define Package/xsupplicant/description
- This software allows a GNU/Linux or BSD workstation to authenticate with 
+ This software allows a GNU/Linux or BSD workstation to authenticate with
  a RADIUS server using 802.1x and various EAP protocols.
 endef
 

@@ -27,7 +27,7 @@ endef
 define Build/Compile
 	$(TARGET_CC) $(TARGET_CFLAGS) -c $(PKG_BUILD_DIR)/schedtool.c -o $(PKG_BUILD_DIR)/schedtool.o
 	$(TARGET_CC) $(TARGET_CFLAGS) -c $(PKG_BUILD_DIR)/error.c -o $(PKG_BUILD_DIR)/error.o
-	$(TARGET_CC) $(PKG_BUILD_DIR)/schedtool.o $(PKG_BUILD_DIR)/error.o -o $(PKG_BUILD_DIR)/schedtool     
+	$(TARGET_CC) $(PKG_BUILD_DIR)/schedtool.o $(PKG_BUILD_DIR)/error.o -o $(PKG_BUILD_DIR)/schedtool
 endef
 
 define Package/schedtool/install

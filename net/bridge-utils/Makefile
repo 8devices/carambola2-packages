@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2013 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -26,7 +26,7 @@ define Package/bridge
 endef
 
 define Package/bridge/description
- Manage ethernet bridging: a way to connect networks together to 
+ Manage ethernet bridging: a way to connect networks together to
  form a larger network.
 endef
 

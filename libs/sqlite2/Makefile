@@ -41,8 +41,8 @@ define Package/libsqlite2
 endef
 
 define Package/libsqlite2/description
-	SQLite is a small C library that implements a self-contained, embeddable, 
-	zero-configuration SQL database engine.	
+	SQLite is a small C library that implements a self-contained, embeddable,
+	zero-configuration SQL database engine.
 	This package contains the SQLite (v2.x) shared library, used by other programs.
 endef
 
@@ -56,10 +56,10 @@ define Package/sqlite2-cli
 endef
 
 define Package/sqlite2-cli/description
-	SQLite is a small C library that implements a self-contained, embeddable, 
-	zero-configuration SQL database engine.	
-	This package contains a terminal-based front-end to the SQLite (v2.x) library 
-	that can evaluate queries interactively and display the results in 
+	SQLite is a small C library that implements a self-contained, embeddable,
+	zero-configuration SQL database engine.
+	This package contains a terminal-based front-end to the SQLite (v2.x) library
+	that can evaluate queries interactively and display the results in
 	multiple formats.
 endef
 

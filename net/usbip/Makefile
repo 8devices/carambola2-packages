@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010-2012 OpenWrt.org
+# Copyright (C) 2010-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=usbip
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 # Since kernel 2.6.39.1 userspace tools are inside the kernel tree
 # Package Automatic match version in kernel
@@ -18,6 +18,9 @@ PKG_VERSION:=$(shell  sed -n -e '/^AC_INIT/s/.*\[\([[:digit:]\.]*\)\].*/\1/gp' $
 PKG_SOURCE:=
 PKG_SOURCE_URL:=
 PKG_MD5SUM:=unknown
+
+PKG_MAINTAINER:=Nuno Goncalves <nunojpg@gmail.com>
+
 PATCH_DIR:=./patches-$(PKG_VERSION)
 
 define prepare_source_directory
@@ -37,7 +40,6 @@ define Package/usbip/Common
   TITLE:=USB-over-IP
   URL:=http://usbip.sourceforge.net/
   DEPENDS:=@USB_SUPPORT
-  MAINTAINER:=Nuno Goncalves <nunojpg@gmail.com>
 endef
 
 define Package/usbip/Default
@@ -61,7 +63,7 @@ endef
 define Package/usbip-server
   $(call Package/usbip/Default)
   TITLE+= (server)
-  DEPENDS+= usbip usbip-client +glib2 +kmod-usbip-server
+  DEPENDS+= usbip +glib2 +kmod-usbip-server
 endef
 
 CONFIGURE_PATH:=.

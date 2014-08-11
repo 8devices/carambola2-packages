@@ -30,7 +30,7 @@ define Package/python-sqlite
 endef
 
 define Package/python-sqlite/description
- This package contains an SQLite database adapter for the Python 
+ This package contains an SQLite database adapter for the Python
  programming language.
 endef
 

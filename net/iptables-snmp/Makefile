@@ -30,17 +30,17 @@ define Package/iptables-snmp/description
 	This is a plugin that makes iptables rules accessable from snmpd.
 endef
 
-define Build/Compile	
+define Build/Compile
 	$(call Build/Compile/Default, \
 		INSTALL_PREFIX="$(PKG_INSTALL_DIR)" \
 		LDFLAGS="$(TARGET_LDFLAGS)" \
 		all install \
 	)
 endef
- 
-define Package/iptables-snmp/install	
+
+define Package/iptables-snmp/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/iptables-snmp.so $(1)/usr/lib
-endef 
+endef
 
 $(eval $(call BuildPackage,iptables-snmp))

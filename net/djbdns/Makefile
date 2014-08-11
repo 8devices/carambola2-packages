@@ -73,13 +73,13 @@ endef
 
 define Package/djdbns/description
 	djbdns is a collection of Domain Name System tools.
-       	It includes software for all the fundamental DNS operations: 
+	It includes software for all the fundamental DNS operations:
 	* DNS server: publishing addresses of Internet hosts.
 	* DNS cache: finding addresses of Internet hosts.
 	* DNS client: talking to a DNS cache.
-	        
+
 	Also included is a DNS client C library, several command-line
-       	DNS client utilities, several DNS debugging tools.
+	DNS client utilities, several DNS debugging tools.
 endef
 
 define Package/djbdns-base/description
@@ -88,36 +88,36 @@ endef
 
 define Package/djbdns-dnscache/description
 	dnscache is a DNS cache.
-       	It accepts recursive DNS queries from local clients such as web
-       	browsers and mail transfer agents. It collects responses from
-	remote DNS servers. It caches the responses to save time later. 
+	It accepts recursive DNS queries from local clients such as web
+	browsers and mail transfer agents. It collects responses from
+	remote DNS servers. It caches the responses to save time later.
 endef
 
 define Package/djbdns-tinydns/description
 	tinydns is a DNS server.
 	It accepts iterative DNS queries from hosts around the Internet
-       	and responds with locally configured information. 
+	and responds with locally configured information.
 endef
 
 define Package/djbdns-axfrdns/description
 	axfrdns is a DNS zone-transfer server.
 	It reads a zone-transfer request in DNS-over-TCP format
-       	from its standard input and responds with locally configured
-	information. 
+	from its standard input and responds with locally configured
+	information.
 endef
 
 define Package/djbdns-rbldns/description
 	rbldns is an IP-address-listing DNS server.
 	It accepts iterative DNS queries from hosts around the Internet asking
-       	about various IP addresses. It provides responses showing whether the
-	addresses are on a locally configured list, such as RBL or DUL. 
+	about various IP addresses. It provides responses showing whether the
+	addresses are on a locally configured list, such as RBL or DUL.
 endef
 
 define Package/djbdns-walldns/description
 	walldns is a reverse DNS wall.
 	It accepts iterative DNS queries for in-addr.arpa domains from hosts
-       	around the Internet and supplies generic responses that avoid
-	revealing local host information. 
+	around the Internet and supplies generic responses that avoid
+	revealing local host information.
 endef
 
 define Package/djbdns-tools/description
@@ -206,4 +206,3 @@ $(eval $(call BuildPackage,djbdns-axfrdns))
 $(eval $(call BuildPackage,djbdns-rbldns))
 $(eval $(call BuildPackage,djbdns-walldns))
 $(eval $(call BuildPackage,djbdns-tools))
-

@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sudo
-PKG_VERSION:=1.7.8p1
+PKG_VERSION:=1.7.10p8
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.sudo.ws/sudo/dist
-PKG_MD5SUM:=5552b9aabc43e34bbc8dc557c098a933
+PKG_MD5SUM:=4620e31c28b387dd9582dfd42e930cfb
 
 PKG_INSTALL:=1
 

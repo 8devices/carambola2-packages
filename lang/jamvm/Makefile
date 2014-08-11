@@ -18,6 +18,8 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MIRROR_MD5SUM:=66a728a3cb8dad0e3773035c4049eb5f
 
+PKG_USE_MIPS16:=0
+
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 
@@ -33,11 +35,11 @@ define Package/jamvm
 endef
 
 define Package/jamvm/description
- JamVM is a new Java Virtual Machine which conforms to the JVM 
- specification version (blue book). In comparison to most other VM's (free 
- and commercial) it is extremely small.However, unlike other small VMs 
- (e.g. KVM) it is designed to support the full specification, and includes 
- support for object finalisation, Soft/Weak/Phantom References, the Java 
+ JamVM is a new Java Virtual Machine which conforms to the JVM
+ specification version (blue book). In comparison to most other VM's (free
+ and commercial) it is extremely small.However, unlike other small VMs
+ (e.g. KVM) it is designed to support the full specification, and includes
+ support for object finalisation, Soft/Weak/Phantom References, the Java
  Native Interface (JNI) and the Reflection API.
 endef
 
@@ -64,4 +66,3 @@ define Build/InstallDev
 endef
 
 $(eval $(call BuildPackage,jamvm))
-

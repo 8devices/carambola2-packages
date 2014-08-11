@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -50,7 +50,7 @@ endef
 
 
 CONFIGURE_VARS:= \
-	 CXXFLAGS="-I$(STAGING_DIR)/usr/include $(ICONV_CFLAGS)" \
+	 CXXFLAGS="-I$(STAGING_DIR)/usr/include $(ICONV_CFLAGS) $(TARGET_CFLAGS)" \
 	 LDFLAGS="-L$(STAGING_DIR)/usr/lib      $(ICONV_LDFLAGS)" \
 
 CONFIGURE_ARGS += \
@@ -69,7 +69,7 @@ endef
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
-		CXXFLAGS="-I$(STAGING_DIR)/usr/include $(ICONV_CFLAGS)"
+		CXXFLAGS="-I$(STAGING_DIR)/usr/include $(ICONV_CFLAGS) $(TARGET_CFLAGS)"
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
 		install

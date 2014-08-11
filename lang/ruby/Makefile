@@ -15,18 +15,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ruby
-PKG_VERSION:=1.9.2-p0
+PKG_VERSION:=1.9.3-p545
 PKG_RELEASE:=1
 
 PKG_LIBVER:=1.9
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=ftp://ftp.ruby-lang.org/pub/ruby/$(PKG_LIBVER)/
-PKG_MD5SUM:=d8a02cadf57d2571cd4250e248ea7e4b
+PKG_MD5SUM:=4743c1dc48491070bae8fc8b423bc1a7
 
 PKG_BUILD_DEPENDS:=ruby/host
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
@@ -41,9 +42,9 @@ define Package/ruby/Default
 endef
 
 define Package/ruby/Default/description
- Ruby is the interpreted scripting language for quick and  easy 
- object-oriented programming.  It has many features to process text files 
- and to do system management tasks (as in perl).  It is simple, 
+ Ruby is the interpreted scripting language for quick and  easy
+ object-oriented programming.  It has many features to process text files
+ and to do system management tasks (as in perl).  It is simple,
  straight-forward, and extensible.
 endef
 
@@ -201,13 +202,16 @@ $(call Package/ruby/Default)
   DEPENDS:=ruby +zlib
 endef
 
+HOST_CONFIGURE_ARGS += \
+	--disable-install-doc \
+	--disable-install-rdoc \
+	--disable-install-capi
 
 CONFIGURE_ARGS += \
 	--enable-shared \
 	--enable-static \
 	--disable-rpath \
 	--enable-ipv6 \
-	--enable-wide-getaddrinfo \
 	--with-ruby-version=minor \
 	--with-iconv-dir=$(ICONV_PREFIX) \
 
@@ -216,13 +220,6 @@ TARGET_LDFLAGS += -L$(PKG_BUILD_DIR)
 MAKE_FLAGS += \
 	DESTDIR="$(PKG_INSTALL_DIR)" \
 	SHELL="/bin/bash"
-
-define Build/Prepare
-$(call Build/Prepare/Default)
-	( cd $(PKG_BUILD_DIR) ; \
-		autoconf ; \
-	)
-endef
 
 define Package/ruby/install
 	$(INSTALL_DIR) $(1)/usr/bin
@@ -301,7 +298,7 @@ define Package/ruby-core/install
 		$(1)/usr/lib/ruby/$(PKG_LIBVER)/yaml \
 		$(1)/usr/lib/ruby/$(PKG_LIBVER)/yaml.rb \
 		$(1)/usr/lib/ruby/$(PKG_LIBVER)/*/syck.so \
-	
+
 	find $(1) -name '*.h' | xargs rm -f
 endef
 

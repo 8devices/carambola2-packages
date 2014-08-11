@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2012 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -13,6 +13,8 @@ PKG_RELEASE:=1
 PKG_SOURCE_URL:=@SF/host-sflow
 PKG_VERSION:=1.20
 PKG_MD5SUM:=0bfc0b05fbab27a80557c5efb5e66693
+
+PKG_USE_MIPS16:=0
 
 PKG_SOURCE:=hsflowd-$(PKG_VERSION).tar.gz
 
@@ -70,4 +72,3 @@ endef
 
 $(eval $(call BuildPackage,hsflowd))
 $(eval $(call BuildPackage,sflowovsd))
-

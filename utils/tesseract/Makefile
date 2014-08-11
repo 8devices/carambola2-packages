@@ -7,13 +7,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=tesseract
-PKG_VERSION:=3.01
+PKG_NAME:=tesseract-ocr
+PKG_VERSION:=3.02.02
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://tesseract-ocr.googlecode.com/files/
-PKG_MD5SUM:=1ba496e51a42358fb9d3ffe781b2d20a
+PKG_MD5SUM:=26adc8154f0e815053816825dde246e6
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -35,7 +36,7 @@ TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
-	$(SED) '1s/^\xEF\xBB\xBF//' $(PKG_BUILD_DIR)/ccutil/strngs.h 
+	$(SED) '1s/^\xEF\xBB\xBF//' $(PKG_BUILD_DIR)/ccutil/strngs.h
 endef
 
 define Build/InstallDev

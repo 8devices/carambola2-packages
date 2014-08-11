@@ -30,7 +30,7 @@ define Package/python-kid
 endef
 
 define Package/python-kid/description
- Kid is a simple template language for XML based vocabularies written in 
+ Kid is a simple template language for XML based vocabularies written in
  Python.
 endef
 

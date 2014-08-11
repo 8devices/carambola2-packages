@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2010-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -28,7 +28,7 @@ define Package/lsm
 endef
 
 define Package/lsm/description
-	lsm is a link state monitor for carrying out actions when a link 
+	lsm is a link state monitor for carrying out actions when a link
 	transistions from the up to down state or vice versa.
 endef
 

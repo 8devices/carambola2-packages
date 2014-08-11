@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -26,7 +26,7 @@ define Package/serdisplib
 endef
 
 define Package/serdisplib/description
-	serdisplib is a library to drive serial and parallel displays 
+	serdisplib is a library to drive serial and parallel displays
 	with built-in controllers.
 endef
 

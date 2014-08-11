@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2009 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -26,7 +26,7 @@ define Package/libnids
 endef
 
 define Package/libnids/description
-	An implementation of an E-component of Network Intrusion Detection 
+	An implementation of an E-component of Network Intrusion Detection
 	System.
 endef
 

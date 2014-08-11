@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2008 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -28,7 +28,7 @@ define Package/ssldump/description
 	ssldump is an SSLv3/TLS network protocol analyzer. It identifies TCP connections on the chosen network interface
 	and attempts to interpret them as SSLv3/TLS traffic. When it identifies SSLv3/TLS traffic, it decodes the records
 	and displays them in a textual form to stdout. If provided with the appropriate keying material, it will also decrypt
-	the connections and display the application data traffic. 
+	the connections and display the application data traffic.
 endef
 
 CONFIGURE_ARGS += \

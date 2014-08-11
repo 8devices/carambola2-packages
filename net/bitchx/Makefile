@@ -45,7 +45,7 @@ define Build/Compile
 	mkdir -p $(PKG_INSTALL_DIR)/usr/lib/bx/help
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/source/BitchX $(PKG_INSTALL_DIR)/usr/bin/BitchX-1.1-final
 	rm -f $(PKG_INSTALL_DIR)/usr/bin/BitchX
-	ln -s /usr/bin/BitchX-1.1-final $(PKG_INSTALL_DIR)/usr/bin/BitchX 
+	ln -s /usr/bin/BitchX-1.1-final $(PKG_INSTALL_DIR)/usr/bin/BitchX
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/BitchX.help $(PKG_INSTALL_DIR)/usr/lib/bx/BitchX.help
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/BitchX.ircnames $(PKG_INSTALL_DIR)/usr/lib/bx/BitchX.ircnames
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/BitchX.quit $(PKG_INSTALL_DIR)/usr/lib/bx/BitchX.quit

@@ -34,7 +34,7 @@ define Build/Compile
 		CC="$(TARGET_CC)" \
 		LD="$(TARGET_CC)" \
 		LDFLAGS="$(TARGET_LDFLAGS)" \
-		all 
+		all
 endef
 
 define Package/acpid/install

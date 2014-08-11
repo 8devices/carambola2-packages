@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2009 David Cooper <dave@kupesoft.com>
 # Copyright (C) 2009 OpenWrt.org
 #
@@ -48,4 +48,3 @@ define Package/sslsniff/install
 endef
 
 $(eval $(call BuildPackage,sslsniff))
-

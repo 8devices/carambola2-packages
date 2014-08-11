@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2008-2011 OpenWrt.org
+# Copyright (C) 2008-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tctool
 PKG_VERSION:=0.9.7
-PKG_RELEASE:=1
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://download2.berlios.de/speedmodem50b
@@ -28,12 +28,15 @@ define Package/tctool
 endef
 
 define Package/tctool/description
- tcTool provides access to the console-service of TrendChip-based 
+ tcTool provides access to the console-service of TrendChip-based
  ADSL-Modems.
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR)/src $(TARGET_CONFIGURE_OPTS) tctool
+	$(MAKE) -C $(PKG_BUILD_DIR)/src \
+		$(TARGET_CONFIGURE_OPTS) \
+		CXXFLAGS="$(TARGET_CXXFLAGS)" \
+		tctool
 endef
 
 define Package/tctool/install

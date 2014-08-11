@@ -28,8 +28,8 @@ define Package/wx200d
 endef
 
 define Package/wx200d/description
-	wx200d is a weather station data collector and server daemon 
-	for the WX200, WM918, WMR918 and WMR968 weather station 
+	wx200d is a weather station data collector and server daemon
+	for the WX200, WM918, WMR918 and WMR968 weather station
 	hardware.
 endef
 

@@ -191,5 +191,5 @@ define Package/rygel-playbin-gst-suggested
     +BUILD_PATENTED:gst-mod-mad
 endef
 $(eval $(call BuildPackage,rygel-playbin-gst-suggested))
- 
+
 $(eval $(call BuildPackage,rygel))

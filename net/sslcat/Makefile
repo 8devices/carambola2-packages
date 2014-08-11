@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2010 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -28,7 +28,7 @@ define Package/sslcat
 endef
 
 define Package/sslcat/description
- SSLCat is a simple Unix utility that reads and writes data across an 
+ SSLCat is a simple Unix utility that reads and writes data across an
  SSL enable network connection.
 endef
 

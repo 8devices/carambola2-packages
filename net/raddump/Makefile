@@ -28,9 +28,9 @@ define Package/raddump
 endef
 
 define Package/raddump/description
-	raddump interprets captured RADIUS packets to print a 
-	timestamp, packet length, RADIUS packet type, source and 
-	destination hosts and ports, and included attribute names and 
+	raddump interprets captured RADIUS packets to print a
+	timestamp, packet length, RADIUS packet type, source and
+	destination hosts and ports, and included attribute names and
 	values for each packet.
 endef
 

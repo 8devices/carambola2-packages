@@ -150,7 +150,7 @@ define DriverPackage
   # to a new version of nut we will need to provide descriptions for any
   # new drivers.
   define Package/nut-driver-$(1)/description
-  
+
   endef
   define Package/nut-driver-$(1)/install
 	$(INSTALL_DIR) $$(1)/lib/nut/

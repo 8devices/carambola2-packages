@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2012 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -37,7 +37,7 @@ standards developed by the Initiative for Open Authentication (OATH)
 
 These implementations support the HMAC-Based One-time Password (HOTP)
 algorithm specified in RFC 4226 and the Time-based One-time Password
-(TOTP) algorithm specified in RFC 6238. 
+(TOTP) algorithm specified in RFC 6238.
 endef
 
 define Build/Configure

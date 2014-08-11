@@ -5,15 +5,16 @@
 # See /LICENSE for more information.
 
 include $(TOPDIR)/rules.mk
+include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=input-utils
-PKG_VERSION:=20081014-101501
-PKG_RELEASE:=2
+PKG_VERSION:=1.1
+PKG_RELEASE:=1
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/input/
+PKG_BUILD_DIR:=$(BUILD_DIR)/input-$(PKG_VERSION)/
 PKG_SOURCE:=input-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://dl.bytesex.org/cvs-snapshots/
-PKG_MD5SUM:=a6854dc5218301b67324b483d26f1bee
+PKG_SOURCE_URL:=https://www.kraxel.org/cgit/input/snapshot
+PKG_MD5SUM:=592b1b45d9d891725f7793999aa52f31
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -31,6 +32,7 @@ define Build/Compile
 		$(TARGET_CONFIGURE_OPTS) \
 		CFLAGS="$(TARGET_CFLAGS)" \
 		STRIP="true" \
+		INPUT="$(LINUX_DIR)/include/uapi/linux/input.h" \
 		build
 endef
 

@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libdbi
-PKG_VERSION:=0.8.3
-PKG_RELEASE:=3
+PKG_VERSION:=0.9.0
+PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/libdbi
-PKG_MD5SUM:=ca66db78d479cbfa727cf3245b5864ae
+PKG_MD5SUM:=05e2ceeac4bc85fbe40de8b4b22d9ab3
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -31,6 +31,11 @@ endef
 define Package/libdbi/description
        libdbi implements a database-independent abstraction layer in C.
 endef
+
+CONFIGURE_ARGS += \
+	--enable-shared \
+	--enable-static \
+	--disable-docs
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include

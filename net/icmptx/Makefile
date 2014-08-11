@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2010 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -24,7 +24,7 @@ define Package/icmptx
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=Firewall Tunnel
-  TITLE:=IP-over-ICMP tunnel 
+  TITLE:=IP-over-ICMP tunnel
   URL:=http://github.com/jakkarth/icmptx
 endef
 

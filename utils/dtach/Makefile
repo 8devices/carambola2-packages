@@ -29,18 +29,18 @@ define Package/dtach/description
 	allowing you to run a program in an environment that is protected from
 	the controlling terminal and attach to it later. dtach does not keep
 	track of the contents of the screen, and thus works best with programs
-	that know how to redraw themselves. 
+	that know how to redraw themselves.
 endef
 
-define Build/Configure	
+define Build/Configure
 	$(call Build/Configure/Default)
 endef
 
-define Build/Compile	
+define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)
 endef
 
-define Package/dtach/install	
+define Package/dtach/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/dtach $(1)/usr/bin/
 endef

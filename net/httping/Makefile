@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2006-2011 OpenWrt.org
+# Copyright (C) 2006-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,23 +8,25 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=httping
-PKG_VERSION:=1.5.2
+PKG_VERSION:=2.3.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://www.vanheusden.com/httping
-PKG_MD5SUM:=49f72b124afb8a60f152ec674a162ad6
+PKG_MD5SUM:=7a71ed513f9f22fe331b783a3d36767e
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/nls.mk
 
 define Package/httping/Default
   SECTION:=net
   CATEGORY:=Network
   TITLE:=Httping is like 'ping' but for http-requests
   URL:=http://www.vanheusden.com/httping/
+  DEPENDS:=$(INTL_DEPENDS)
 endef
 
 define Package/httping/Default/description
@@ -56,11 +58,19 @@ define Package/httping-nossl/description
 	This package is built without SSL support.
 endef
 
-TARGET_CFLAGS += -D_GNU_SOURCE
+define Build/Configure
+endef
+
+TARGET_LDFLAGS += $(INTL_LDFLAGS) $(if $(INTL_FULL),-lintl)
+
+MAKE_FLAGS += \
+	DEBUG="no" \
+	FW="no" \
+	NC="no" \
+	TFO="no"
 
 ifeq ($(BUILD_VARIANT),nossl)
 	MAKE_FLAGS += SSL="no"
-	TARGET_CFLAGS += -DNO_SSL
 endif
 
 define Package/httping/install

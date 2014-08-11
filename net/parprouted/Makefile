@@ -8,12 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=parprouted
-PKG_VERSION:=0.64
-PKG_RELEASE:=5
+PKG_VERSION:=0.70
+PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-0.7.tar.gz
 PKG_SOURCE_URL:=http://www.hazard.maks.net/parprouted/
-PKG_MD5SUM:=14133c9cb8dd9c9a90ff37648ae7b31a
+PKG_MD5SUM:=570f5deaf09600df8f80f589de79ecdb
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-0.7
 
 include $(INCLUDE_DIR)/package.mk
 

@@ -34,7 +34,7 @@ define Package/joe
 endef
 
 define Package/joe/description
-Joe is world-famous Wordstar like text editor, that also features 
+Joe is world-famous Wordstar like text editor, that also features
 Emacs and Pico emulation
 endef
 

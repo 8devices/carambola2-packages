@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -30,8 +30,8 @@ define Package/twisted/default
 endef
 
 define Package/twisted/default/description
- Twisted is a networking engine written in Python, supporting numerous 
- protocols. It contains a web server, numerous chat clients, chat servers, 
+ Twisted is a networking engine written in Python, supporting numerous
+ protocols. It contains a web server, numerous chat clients, chat servers,
  mail servers, and more.
 endef
 

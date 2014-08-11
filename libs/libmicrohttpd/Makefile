@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2011-2012 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -36,7 +36,7 @@ CONFIGURE_ARGS+= \
 	--disable-curl \
 	--disable-https \
 
-define Build/InstallDev 
+define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/microhttpd.h $(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib

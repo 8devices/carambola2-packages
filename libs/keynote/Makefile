@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -28,9 +28,9 @@ define Package/keynote
 endef
 
 define Package/keynote/description
- KeyNote is a simple and flexible trust-management system designed to work 
+ KeyNote is a simple and flexible trust-management system designed to work
  well for a variety of large- and small- scale Internet-based applications.
- It provides a single, unified language for both local policies and 
+ It provides a single, unified language for both local policies and
  credentials.
 endef
 

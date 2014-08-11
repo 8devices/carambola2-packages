@@ -33,9 +33,9 @@ define Package/python-yapsnmp
 endef
 
 define Package/python-yapsnmp/description
- This package contains a Python SNMP module based on the net-snmp (formerly 
- known as ucd-snmp) library. It's composed of a low level interface to the 
- library, created using SWIG, and a higher level python module removing all 
+ This package contains a Python SNMP module based on the net-snmp (formerly
+ known as ucd-snmp) library. It's composed of a low level interface to the
+ library, created using SWIG, and a higher level python module removing all
  the complexity out of dealing with SNMP.
 endef
 

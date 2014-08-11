@@ -39,7 +39,7 @@ TARGET_CFLAGS += \
 CONFIGURE_ARGS += \
 	--enable-shared \
 	--enable-static
-#	--with-build-cc="$(HOSTCC)" 
+#	--with-build-cc="$(HOSTCC)"
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \

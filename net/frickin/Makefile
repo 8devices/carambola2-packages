@@ -26,8 +26,8 @@ define Package/frickin
 endef
 
 define Package/frickin/description
-	Frickin PPTP Proxy allows a Point-to-Point Tunneling Protocol (PPTP) 
-	client to connect to a PPTP server through Network Address 
+	Frickin PPTP Proxy allows a Point-to-Point Tunneling Protocol (PPTP)
+	client to connect to a PPTP server through Network Address
 	Translation (NAT).
 endef
 

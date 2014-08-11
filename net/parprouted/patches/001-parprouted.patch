@@ -1,7 +1,6 @@
-diff -rupw parprouted-0.63/arp.c parprouted-0.63-1/arp.c
---- parprouted-0.63/arp.c	2004-05-23 14:06:31.000000000 +0200
-+++ parprouted-0.63-1/arp.c	2005-03-13 16:10:18.000000000 +0100
-@@ -366,7 +366,7 @@ void *arp(char *ifname) 
+--- a/arp.c
++++ b/arp.c
+@@ -366,7 +366,7 @@ void *arp(char *ifname)
      do {
        pthread_testcancel();
        /* Sleep a bit in order not to overload the system */
@@ -10,24 +9,23 @@ diff -rupw parprouted-0.63/arp.c parprouted-0.63-1/arp.c
  
        if (arp_recv(sock, &frame) <= 0)
      	    continue;
-diff -rupw parprouted-0.63/parprouted.c parprouted-0.63-1/parprouted.c
---- parprouted-0.63/parprouted.c	2004-01-30 02:45:43.000000000 +0100
-+++ parprouted-0.63-1/parprouted.c	2005-03-20 09:14:35.000000000 +0100
-@@ -93,7 +93,7 @@ void processarp(int cleanup) 
+--- a/parprouted.c
++++ b/parprouted.c
+@@ -106,7 +106,7 @@ int route_remove(ARPTAB_ENTRY* cur_entry
+     int success = 1;
+     
+     if (snprintf(routecmd_str, ROUTE_CMD_LEN-1, 
+-	    "/sbin/ip route del %s/32 metric 50 dev %s scope link",
++	    "/sbin/route del -host %s metric 50 dev %s",
+ 	    inet_ntoa(cur_entry->ipaddr_ia), cur_entry->ifname) > ROUTE_CMD_LEN-1) 
+     {
+ 	syslog(LOG_INFO, "ip route command too large to fit in buffer!");
+@@ -136,7 +136,7 @@ int route_add(ARPTAB_ENTRY* cur_entry)
+     int success = 1;
  
- 	    /* added route to the kernel */
- 	    if (snprintf(routecmd_str, ROUTE_CMD_LEN-1, 
--		     "/sbin/ip route add %s/32 metric 50 dev %s scope link",
-+		     "/sbin/route add -host %s metric 50 dev %s",
- 		     inet_ntoa(cur_entry->ipaddr_ia), cur_entry->ifname) > ROUTE_CMD_LEN-1) 
- 	    {
- 		syslog(LOG_INFO, "ip route command too large to fit in buffer!");
-@@ -112,7 +112,7 @@ void processarp(int cleanup) 
- 
- 	    /* remove entry from arp table and remove route from kernel */
- 	    if (snprintf(routecmd_str, ROUTE_CMD_LEN-1, 
--		     "/sbin/ip route del %s/32 metric 50 dev %s scope link",
-+		     "/sbin/route del -host %s metric 50 dev %s",
- 		     inet_ntoa(cur_entry->ipaddr_ia), cur_entry->ifname) > ROUTE_CMD_LEN-1) 
- 	    {
- 		syslog(LOG_INFO, "ip route command too large to fit in buffer!");
+     if (snprintf(routecmd_str, ROUTE_CMD_LEN-1, 
+-	    "/sbin/ip route add %s/32 metric 50 dev %s scope link",
++	    "/sbin/route add -host %s metric 50 dev %s",
+ 	    inet_ntoa(cur_entry->ipaddr_ia), cur_entry->ifname) > ROUTE_CMD_LEN-1) 
+     {
+ 	syslog(LOG_INFO, "ip route command too large to fit in buffer!");

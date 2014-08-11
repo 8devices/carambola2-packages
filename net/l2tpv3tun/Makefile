@@ -23,7 +23,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/l2tpv3tun
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libnl +ip +kmod-l2tp +kmod-l2tp-ip +kmod-l2tp-eth
+  DEPENDS:=+libnl-tiny +ip +kmod-l2tp +kmod-l2tp-ip +kmod-l2tp-eth
   TITLE:=Control utility for static L2TP v3 (Pseudowire) tunnels
   MAINTAINER:=Thomas Heil <heil@terminal-consulting.de>
   URL:=http://www.openl2tp.org
@@ -36,9 +36,9 @@ endef
 
 MAKE_FLAGS += \
 	CC="$(TARGET_CC)" \
-	CFLAGS="$(TARGET_CFLAGS) -I$(STAGING_DIR)/usr/include -I$(LINUX_DIR)/include" \
+	CFLAGS="$(TARGET_CFLAGS) -I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/usr/include/libnl-tiny/" \
 	LD="$(TARGET_CC)" \
-	LDFLAGS="$(TARGET_LDFLAGS) -L$(STAGING_DIR)/usr/lib -lnl -lnl-genl"
+	LDFLAGS="$(TARGET_LDFLAGS) -L$(STAGING_DIR)/usr/lib/ -lnl-tiny"
 
 define Package/l2tpv3tun/install
 	$(INSTALL_DIR) $(1)/usr/bin

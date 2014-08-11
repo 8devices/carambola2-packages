@@ -1,5 +1,5 @@
-# 
-# Copyright (C) 2006 OpenWrt.org
+#
+# Copyright (C) 2006-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=giflib
-PKG_VERSION:=4.1.6
+PKG_VERSION:=5.1.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/giflib
-PKG_MD5SUM:=7125644155ae6ad33dbc9fc15a14735f
+PKG_MD5SUM:=c7e9f1c10b755ab955156d4c1ac7fc5d
 
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=COPYING
@@ -33,7 +33,7 @@ endef
 define Package/giflib/description
   giflib is a library for reading and writing gif images.
   It is API and ABI compatible with libungif which was in wide use while
-  the LZW compression algorithm was patented. 
+  the LZW compression algorithm was patented.
 endef
 
 TARGET_CFLAGS += $(FPIC)

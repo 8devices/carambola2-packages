@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (C) 2006 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -46,7 +46,7 @@ endef
 define Compile/Template
 
 $(PKG_BUILD_DIR)/snort$(1): $(STAMP_CONFIGURED)
-	touch -r $(PKG_BUILD_DIR)/Makefile.am $(PKG_BUILD_DIR)/configure.in 
+	touch -r $(PKG_BUILD_DIR)/Makefile.am $(PKG_BUILD_DIR)/configure.in
 	touch -r $(PKG_BUILD_DIR)/Makefile.in $(PKG_BUILD_DIR)/configure
 	-$(MAKE) -C $(PKG_BUILD_DIR) distclean
 	$(call Build/Configure/Default, \

@@ -35,7 +35,7 @@ endef
 CONFIGURE_VARS+= \
 	CPPFLAGS="$$$$CPPFLAGS -I$(ICONV_PREFIX)/include" \
 	CPPFLAGS="$$$$CPPFLAGS -I$(INTL_PREFIX)/include" \
-	CPPFLAGS="$$$$CPPFLAGS -Wl,-rpath-link,$(STAGING_DIR)/usr/lib:$(ICONV_PREFIX)/lib:$(INTL_PREFIX)/lib" 
+	CPPFLAGS="$$$$CPPFLAGS -Wl,-rpath-link,$(STAGING_DIR)/usr/lib:$(ICONV_PREFIX)/lib:$(INTL_PREFIX)/lib"
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \

@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2007 OpenWrt.org
-# Original port by FreeWRT project. 
+# Original port by FreeWRT project.
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -48,4 +48,3 @@ define Package/daemontools/install
 endef
 
 $(eval $(call BuildPackage,daemontools))
-

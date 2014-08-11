@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2006 OpenWrt.org
+# Copyright (C) 2006-2014 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vncrepeater
 PKG_VERSION:=0.12
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.rit.edu/~reh5586/openwrt/packages/vncrepeater/src
@@ -33,23 +33,23 @@ define Package/vncrepeater/conffiles
 endef
 
 define Package/vncrepeater/description
- Viewer can be behind Nat router or directly connected to the internet 
- instead of forwarding serveral ports, you only need to forward 1 port. 
- If the PC that runs the Repeater has access to the local DNS server, 
+ Viewer can be behind Nat router or directly connected to the internet
+ instead of forwarding serveral ports, you only need to forward 1 port.
+ If the PC that runs the Repeater has access to the local DNS server,
  you can use your local DNS names instead of 10.10.10.12.
- This could be handy when you have a dynamic DHCP server allocating 
+ This could be handy when you have a dynamic DHCP server allocating
  ip adresses for your PC.
 endef
 
 define Build/Compile
 	$(call Build/Compile/Default, \
 		CC="$(TARGET_CXX)" \
-		CFLAGS="$(TARGET_CPPFLAGS) -fno-rtti" \
+		CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS) -fno-rtti" \
 		repeater \
 	)
 endef
 
-define Package/vncrepeater/install	
+define Package/vncrepeater/install
 	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/repeater $(1)/usr/sbin/$(PKG_NAME)
 	$(INSTALL_DIR) $(1)/etc

@@ -28,8 +28,8 @@ define Package/ushare
 endef
 
 define Package/ushare/description
- uShare is a UPnP (TM) A/V & DLNA Media Server. It implements the server 
- component that provides UPnP media devices with information on available 
+ uShare is a UPnP (TM) A/V & DLNA Media Server. It implements the server
+ component that provides UPnP media devices with information on available
  multimedia files.
 endef
 

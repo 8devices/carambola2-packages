@@ -29,9 +29,9 @@ define Package/nocatauth
 endef
 
 define Package/nocatauth/description
-        NoCatAuth is the original "catch and release" captive portal 
-	implementation. It provides a simple splash screen web page for 
-	clients on your network, as well as a variety of authenticated 
+        NoCatAuth is the original "catch and release" captive portal
+	implementation. It provides a simple splash screen web page for
+	clients on your network, as well as a variety of authenticated
 	modes. It is written in Perl.
 endef
 
