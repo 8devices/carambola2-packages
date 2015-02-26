@@ -22,7 +22,7 @@ define Package/avrdude
   CATEGORY:=Utilities
   TITLE:=AVR Downloader/UploaDEr
   URL:=http://www.bsdhome.com/avrdude/
-  DEPENDS:=+libncurses +libreadline +libusb-compat +libftdi
+  DEPENDS:=+libncurses +libreadline +libusb-compat +libftdi1
 endef
 
 define Package/avrdude/description
